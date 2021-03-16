@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    >
+
+
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/fdyear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:textSize="12sp"
+            android:layout_weight="4"
+            android:gravity="center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/fdinterestAmount"
+            android:padding="10sp"
+            android:textSize="12sp"
+            android:layout_weight="4"
+            android:gravity="center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/fdinterestCaptilized"
+            android:padding="10sp"
+            android:textSize="12sp"
+            android:layout_weight="4"
+            android:gravity="center_horizontal"
+            />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/fdbalance"
+            android:padding="10sp"
+            android:textSize="12sp"
+            android:layout_weight="4"
+            android:gravity="center_horizontal"
+            />
+
+
+    </TableRow>
+
+
+
+</TableLayout>
