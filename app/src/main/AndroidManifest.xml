@@ -8,8 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EMICalculator">
-        <activity android:name=".fdcalculator.FdStatisticsActivity"></activity>
+        android:theme="@style/Theme.EMICalculator.NoActionBar">
+        <activity android:name=".LoanCompairActivity"></activity>
+        <activity android:name=".interestpayout.InterestStatisticsActivity" />
+        <activity android:name=".fdcalculator.FdStatisticsActivity" />
         <activity android:name=".fdcalculator.FdStatisticsAdapter" />
         <activity android:name=".rdcalculator.rdStatisticsActivity" />
         <activity android:name=".rdcalculator.rdStatistics" />

@@ -61,6 +61,7 @@ class FdStatisticsActivity : AppCompatActivity() {
             var dailyInterest=(R/365)
             var monthlyInterst=dailyInterest* maxDay
             var monthlyinterestAmount= ((monthlyInterst*principle)/100)
+            var monthlyinterestAmount2:String="%.2f".format(monthlyinterestAmount)
 
             if(countmonth%4!=3){
 
@@ -68,7 +69,7 @@ class FdStatisticsActivity : AppCompatActivity() {
 
                 countmonth++
                 a=0
-                count.add(FdStatisticsData(i.toString(),monthlyinterestAmount.toString(),a.toString(),previousprinciple.toString()))
+                count.add(FdStatisticsData(i.toString(),monthlyinterestAmount2.toString(),a.toString(),previousprinciple.toString()))
                 month--
                 i++
                 month2=month.toInt()
@@ -83,7 +84,7 @@ class FdStatisticsActivity : AppCompatActivity() {
 
                 principle= ((principle).toInt().toFloat()+a.toFloat()).toDouble()
                 previousprinciple= principle.roundToInt()
-                count.add(FdStatisticsData(i.toString(),monthlyinterestAmount.toString(),a.toString(),principle.toString()))
+                count.add(FdStatisticsData(i.toString(),monthlyinterestAmount2.toString(),a.toString(),principle.toString()))
                 month--
                 i++
                 month2=month.toInt()

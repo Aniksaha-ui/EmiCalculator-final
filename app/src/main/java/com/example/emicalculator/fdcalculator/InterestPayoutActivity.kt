@@ -1,5 +1,6 @@
 package com.example.emicalculator.fdcalculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -7,7 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.example.emicalculator.R
-
+import com.example.emicalculator.interestpayout.InterestStatisticsActivity
 
 
 private var DepositeAmount: EditText?=null
@@ -44,6 +45,22 @@ class InterestPayoutActivity : AppCompatActivity() {
             var T= year!!.text.toString().toDouble()
             InterestPayoutCalculation(P,R,T)
         }
+
+        statstics!!.setOnClickListener {
+            var P= DepositeAmount!!.text.toString().toDouble()
+            var R= Interest!!.text.toString().toDouble()
+            var T= year!!.text.toString().toDouble()
+
+            val bundle = Bundle()
+            bundle.putString("P", P.toDouble().toString())
+            bundle.putString("R", R.toDouble().toString())
+            bundle.putString("T", T.toDouble().toString())
+
+            val intent = Intent(this@InterestPayoutActivity,InterestStatisticsActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
+
 
 
     }

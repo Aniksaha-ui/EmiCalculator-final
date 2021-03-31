@@ -18,28 +18,35 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, EmiCalculateActivity::class.java)
             startActivity(intent)
         }
+
+        findViewById<View>(R.id.compare_loan).setOnClickListener {
+            val intent = Intent(this@MainActivity, LoanCompairActivity::class.java)
+            startActivity(intent)
+        }
+
+
 //
 //
-//        findViewById<View>(R.id.FixedDeposite).setOnClickListener{
-//            val intent=Intent(this@MainActivity, FdActivity::class.java)
-//            startActivity(intent)
-//
-//        }
-//
-//
-//        findViewById<View>(R.id.InterestPayout).setOnClickListener{
-//            val intent=Intent(this@MainActivity, InterestPayoutActivity::class.java)
-//            startActivity(intent)
-//
-//        }
+        findViewById<View>(R.id.fixedDeposite).setOnClickListener{
+            val intent=Intent(this@MainActivity, FdActivity::class.java)
+            startActivity(intent)
+
+        }
 //
 //
+        findViewById<View>(R.id.InterestPayout).setOnClickListener{
+            val intent=Intent(this@MainActivity, InterestPayoutActivity::class.java)
+            startActivity(intent)
+
+        }
 //
-//        findViewById<View>(R.id.RecurringDeposite).setOnClickListener{
-//            val intent=Intent(this@MainActivity, RdActivity::class.java)
-//            startActivity(intent)
 //
-//        }
+//
+        findViewById<View>(R.id.Rdcalculator).setOnClickListener{
+            val intent=Intent(this@MainActivity, RdActivity::class.java)
+            startActivity(intent)
+
+        }
 
 
 

@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:orientation="vertical">
 
         <!-- Table Data -->
 
 
 
-        <TableRow>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="4"
+            android:orientation="horizontal"
+            >
 
             <TextView
                 android:id="@+id/yearCount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="10sp"
-                android:textSize="12sp"
-                android:layout_weight="4"
+                android:textSize="20sp"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 />
 
@@ -27,8 +34,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/principleCount"
                 android:padding="10sp"
-                android:textSize="12sp"
-                android:layout_weight="4"
+                android:textSize="20sp"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 />
 
@@ -37,8 +44,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/interestCount"
                 android:padding="10sp"
-                android:textSize="12sp"
-                android:layout_weight="4"
+                android:textSize="20sp"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 />
 
@@ -48,13 +55,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/balanceCount"
                 android:padding="10sp"
-                android:textSize="12sp"
-                android:layout_weight="4"
+                android:textSize="20sp"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 />
 
 
-        </TableRow>
+        </LinearLayout>
 
 
-</TableLayout>
+</RelativeLayout>

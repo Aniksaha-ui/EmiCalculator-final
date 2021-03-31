@@ -49,7 +49,7 @@ class emiStatiscticsActivity : AppCompatActivity() {
         var i=1
 
 
-        while (P>=0.0){
+        while (P>=1.0){
 
             var givenInterest:Float=(P*I)/(12*100)
             var givenInterestFinal:String="%.2f".format(givenInterest)
