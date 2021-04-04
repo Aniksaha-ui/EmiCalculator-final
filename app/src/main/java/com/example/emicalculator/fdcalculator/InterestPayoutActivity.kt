@@ -46,6 +46,16 @@ class InterestPayoutActivity : AppCompatActivity() {
             InterestPayoutCalculation(P,R,T)
         }
 
+
+        reset!!.setOnClickListener {
+            DepositeAmount!!.setText("")
+            Interest!!.setText("")
+            year!!.setText("")
+            deposite!!.setText("0.0")
+            totalInterest!!.setText("0.0")
+            maturityAmount!!.setText("0.0")
+        }
+
         statstics!!.setOnClickListener {
             var P= DepositeAmount!!.text.toString().toDouble()
             var R= Interest!!.text.toString().toDouble()

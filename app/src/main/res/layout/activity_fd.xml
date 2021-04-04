@@ -4,46 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/layer_52"
+    android:background="@drawable/layer_51"
     tools:context=".fdcalculator.FdActivity"
     android:orientation="vertical">
 
 
     <androidx.appcompat.widget.Toolbar
+        android:background="#9FB2FA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#8A59DD"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="5dp">
+        tools:ignore="MissingConstraints">
 
         <TextView
+            android:textColor="#2F3293"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="EMI Calculator"
-
-            android:textColor="@color/white"
             android:textSize="18sp"
 
             />
 
     </androidx.appcompat.widget.Toolbar>
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="292dp"
         android:layout_height="25dp"
-        android:layout_marginLeft="100dp"
         android:text="Deposite Amount"
+        android:textColor="#2F3293"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="0.950"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.107" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -79,11 +76,12 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Interest Rate"
+        android:textColor="#2F3293"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.40"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         app:layout_constraintVertical_bias="0.010" />
@@ -123,10 +121,11 @@
         android:gravity="center_horizontal"
         android:text="Loan Tenure"
         android:textAlignment="center"
+        android:textColor="#2F3293"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintHorizontal_bias="0.40"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
         app:layout_constraintVertical_bias="0.010" />

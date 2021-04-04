@@ -43,7 +43,16 @@ class FdActivity : AppCompatActivity() {
 
 
 
+        reset!!.setOnClickListener {
+            DepositeAmount!!.setText("")
+            Interest!!.setText("")
+            year!!.setText("")
+            deposite!!.setText("0.0")
+            totalInterest!!.setText("0.0")
+            maturityAmount!!.setText("0.0")
+            absoluteAmount!!.setText("0.0")
 
+        }
 
 
 

@@ -4,36 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/layer_52"
+    android:background="@drawable/layer_51"
     android:orientation="vertical"
     tools:context=".EmiCalculateActivity">
 
 
+
+
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
+        android:background="#9FB2FA"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="370dp"
-        android:background="#8A59DD"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints">
 
         <TextView
+            android:textColor="#2F3293"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="EMI + Financial Calculator"
-            android:textColor="@color/white"
+            android:text="EMI Calculator"
             android:textSize="18sp"
 
             />
 
     </androidx.appcompat.widget.Toolbar>
+
 
     <TextView
         android:id="@+id/textView2"
@@ -41,10 +36,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
         android:text="Principle Amount"
+        android:textColor="#2F3293"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.096" />
@@ -65,7 +61,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/principleamount"
-            android:layout_width="235dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/corner_redius"
             android:inputType="numberDecimal"
@@ -81,12 +77,13 @@
         android:layout_width="228dp"
         android:layout_height="29dp"
         android:gravity="center_horizontal"
-        android:text="Interest"
+        android:text="Interest Amount"
         android:textAlignment="center"
+        android:textColor="#2F3293"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         app:layout_constraintVertical_bias="0.0" />
@@ -122,12 +119,13 @@
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:textColor="#2F3293"
         android:text="Loan Tenure"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
         app:layout_constraintVertical_bias="0.010" />

@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/layer_52"
+    android:background="@drawable/layer_51"
     tools:context=".MainActivity">
 
 
     <androidx.appcompat.widget.Toolbar
-        android:background="#8A59DD"
+        android:background="#9FB2FA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:textColor="@color/white"
+            android:textColor="#2F3293"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:text="EMI calculator"
         android:textSize="25dp"
+        android:textColor="#2F3293"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -44,7 +45,6 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
         android:weightSum="3"
@@ -61,15 +61,17 @@
 
             <ImageView
                 android:id="@+id/emiCalculator"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/emi" />
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/emi_final" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/emiCalculator"
                 android:text="Emi_calculator"
+                android:textColor="#2F3293"
+                android:layout_marginLeft="18dp"
                 android:textSize="14dp" />
 
         </RelativeLayout>
@@ -82,15 +84,17 @@
 
             <ImageView
                 android:id="@+id/compare_loan"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/emi" />
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/emi_final" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/compare_loan"
                 android:text="Compare lone"
+                android:textColor="#2F3293"
+                android:layout_marginLeft="18dp"
                 android:textSize="14dp" />
 
         </RelativeLayout>
@@ -103,15 +107,17 @@
 
             <ImageView
                 android:id="@+id/rateofInterest"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/emi" />
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/emi_final" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rateofInterest"
                 android:text="Rate of Interest"
+                android:layout_marginLeft="18dp"
+                android:textColor="#2F3293"
                 android:textSize="14dp" />
 
         </RelativeLayout>
@@ -123,6 +129,7 @@
         android:id="@+id/Title3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#2F3293"
         android:text="Banking Calculator"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -136,7 +143,6 @@
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
         android:orientation="horizontal"
         android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -155,13 +161,15 @@
 
             <ImageView
                 android:id="@+id/fixedDeposite"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/fd"/>
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/fd_final"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textColor="#2F3293"
                 android:layout_below="@id/fixedDeposite"
                 android:text="Fixed deposite"
                 android:textSize="14dp" />
@@ -177,9 +185,9 @@
 
             <ImageView
                 android:id="@+id/InterestPayout"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/fd" />
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/fd_final" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -187,10 +195,12 @@
                 android:layout_below="@id/InterestPayout"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginLeft="0dp"
+                android:textColor="#2F3293"
+
+                android:layout_marginLeft="20dp"
                 android:text="Interest Payout"
-                android:textSize="14dp" />
+                android:textSize="14dp"
+                />
 
         </RelativeLayout>
 
@@ -203,9 +213,9 @@
 
             <ImageView
                 android:id="@+id/Rdcalculator"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/rd" />
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/rd_final" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -213,8 +223,8 @@
                 android:layout_below="@id/Rdcalculator"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginLeft="0dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#2F3293"
                 android:text="Fixed deposite"
                 android:textSize="14dp" />
 
