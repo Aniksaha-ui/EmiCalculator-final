@@ -4,6 +4,7 @@ import StatsticsAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.collections.ArrayList
@@ -25,6 +26,11 @@ class emiStatiscticsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statisctics)
 
+        supportActionBar!!.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        supportActionBar!!.setCustomView(R.layout.action_bar_layout2);
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setTitle("EMI Calculator")
 
         val bundle = intent.extras
         if (bundle!= null){

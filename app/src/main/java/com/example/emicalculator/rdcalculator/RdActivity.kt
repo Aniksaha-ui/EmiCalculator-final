@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.ActionBar
 import com.example.emicalculator.R
 
 private var DepositeAmount: EditText?=null
@@ -24,7 +25,11 @@ class RdActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rd)
-
+        supportActionBar!!.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        supportActionBar!!.setCustomView(R.layout.action_bar_layout2);
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setTitle("EMI Calculator")
 
 
         DepositeAmount=findViewById<View>(R.id.Monthlydeposite) as EditText

@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.ActionBar
 
 class LoanCompairActivity : AppCompatActivity() {
 
@@ -38,7 +39,11 @@ class LoanCompairActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_loan_compair)
-
+        supportActionBar!!.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        supportActionBar!!.setCustomView(R.layout.action_bar_layout2);
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setTitle("EMI Calculator")
 
         Principleamount1 = findViewById<View>(R.id.principleamount1) as EditText
         Interest1=findViewById<View>(R.id.interestAmount1) as EditText

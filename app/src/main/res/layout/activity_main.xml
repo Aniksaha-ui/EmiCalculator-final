@@ -8,23 +8,23 @@
     tools:context=".MainActivity">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:background="#9FB2FA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:background="#9FB2FA"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:ignore="MissingConstraints">-->
 
-        <TextView
-            android:textColor="#2F3293"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="EMI Calculator"
-            android:textSize="18sp"
+<!--        <TextView-->
+<!--            android:textColor="#2F3293"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="EMI Calculator"-->
+<!--            android:textSize="18sp"-->
 
-            />
+<!--            />-->
 
-    </androidx.appcompat.widget.Toolbar>
+<!--    </androidx.appcompat.widget.Toolbar>-->
 
 
     <TextView
@@ -39,7 +39,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
+        app:layout_constraintVertical_bias="0.050" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

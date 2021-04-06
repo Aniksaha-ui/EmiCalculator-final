@@ -8,28 +8,28 @@
 
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:background="#9FB2FA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:background="#9FB2FA"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:ignore="MissingConstraints">-->
 
-        <TextView
-            android:textColor="#2F3293"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="EMI Calculator"
-            android:textSize="18sp"
+<!--        <TextView-->
+<!--            android:textColor="#2F3293"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="EMI Calculator"-->
+<!--            android:textSize="18sp"-->
 
-            />
+<!--            />-->
 
-    </androidx.appcompat.widget.Toolbar>
+<!--    </androidx.appcompat.widget.Toolbar>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/stat_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,35 +55,35 @@
             android:weightSum="4">
 
 
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
                 android:text="Month"
                 android:textColor="@android:color/white"
-                android:textSize="15sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
                 android:text="Interest Amount"
                 android:textColor="@android:color/white"
-                android:textSize="15sp" />
+                android:textSize="10sp" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:padding="1sp"
                 android:text="Interest capitalized"
                 android:textColor="@android:color/white"
-                android:textSize="15sp" />
+                android:textSize="10sp" />
+
 
 
             <TextView
@@ -94,8 +94,7 @@
                 android:padding="10sp"
                 android:text="RD Balance"
                 android:textColor="@android:color/white"
-                android:textSize="15sp" />
-
+                android:textSize="10sp" />
 
         </LinearLayout>
 

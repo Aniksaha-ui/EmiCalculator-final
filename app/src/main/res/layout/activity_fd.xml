@@ -9,38 +9,39 @@
     android:orientation="vertical">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:background="#9FB2FA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:background="#9FB2FA"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:ignore="MissingConstraints">-->
 
-        <TextView
-            android:textColor="#2F3293"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="EMI Calculator"
-            android:textSize="18sp"
+<!--        <TextView-->
+<!--            android:textColor="#2F3293"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="EMI Calculator"-->
+<!--            android:textSize="18sp"-->
 
-            />
+<!--            />-->
 
-    </androidx.appcompat.widget.Toolbar>
+<!--    </androidx.appcompat.widget.Toolbar>-->
 
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="292dp"
-        android:layout_height="25dp"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
         android:text="Deposite Amount"
         android:textColor="#2F3293"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.950"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107" />
+        app:layout_constraintVertical_bias="0.050" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -175,11 +176,12 @@
 
             android:id="@+id/reset"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:background="@drawable/buttonredius"
             android:layout_marginVertical="3dp"
             android:layout_marginRight="2dp"
             android:layout_marginLeft="10dp"
+            android:textSize="10sp"
             android:layout_weight="1"
             android:text="reset"
 
@@ -189,9 +191,10 @@
         <Button
             android:id="@+id/calculate"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:layout_marginVertical="3dp"
             android:layout_marginLeft="10dp"
+            android:textSize="10sp"
             android:background="@drawable/buttonredius"
             android:layout_weight="1"
             android:text="calculate" />
@@ -199,11 +202,12 @@
         <Button
             android:id="@+id/statstics"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:layout_marginVertical="3dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="16dp"
             android:layout_weight="1"
+            android:textSize="10sp"
             android:background="@drawable/buttonredius"
             android:text="Satistics" />
 
@@ -276,12 +280,12 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="18dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="51dp"
-            android:layout_marginEnd="37dp"
-            android:layout_marginRight="37dp"
-            android:layout_marginBottom="99dp">
+            android:layout_marginStart="22dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginRight="33dp"
+            android:layout_marginBottom="110dp">
 
             <TextView
                 android:id="@+id/deposite"
@@ -289,8 +293,8 @@
                 android:layout_height="24dp"
                 android:gravity="center_horizontal"
                 android:text="0.0"
+
                 android:textSize="22dp"
-                android:textAlignment="center"
                 android:textStyle="bold" />
 
             <TextView
@@ -299,14 +303,13 @@
                 android:layout_height="24dp"
                 android:layout_marginLeft="80dp"
                 android:gravity="center_horizontal"
-                android:textSize="22dp"
                 android:text="0.0"
-                android:textAlignment="center"
+
+                android:textSize="22dp"
                 android:textStyle="bold" />
 
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="323dp"
@@ -354,12 +357,12 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginLeft="21dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="37dp"
-            android:layout_marginRight="37dp"
-            android:layout_marginBottom="19dp">
+            android:layout_marginEnd="31dp"
+            android:layout_marginRight="31dp"
+            android:layout_marginBottom="40dp">
 
 
             <TextView
@@ -369,7 +372,6 @@
                 android:gravity="center_horizontal"
                 android:text="0.0"
                 android:textSize="22dp"
-                android:textAlignment="center"
                 android:textStyle="bold" />
 
             <TextView
@@ -379,10 +381,9 @@
                 android:layout_marginLeft="80dp"
                 android:gravity="center_horizontal"
                 android:text="0.0"
+
                 android:textSize="22dp"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
 
         </LinearLayout>

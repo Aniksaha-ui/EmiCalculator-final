@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.ActionBar
 import com.example.emicalculator.fdcalculator.FdActivity
 import com.example.emicalculator.fdcalculator.InterestPayoutActivity
 import com.example.emicalculator.rdcalculator.RdActivity
@@ -13,6 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar!!.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        supportActionBar!!.setCustomView(R.layout.action_bar_layout);
 
         findViewById<View>(R.id.emiCalculator).setOnClickListener {
             val intent = Intent(this@MainActivity, EmiCalculateActivity::class.java)

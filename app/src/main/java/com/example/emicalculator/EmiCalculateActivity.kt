@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -29,6 +30,15 @@ class EmiCalculateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emi_calculate)
+//        supportActionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
+//        supportActionBar.setCustomView(R.layooou.toolbar)
+        supportActionBar!!.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        supportActionBar!!.setCustomView(R.layout.action_bar_layout2);
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setTitle("EMI Calculator")
+
+
 
         Principleamount = findViewById<View>(R.id.principleamount) as EditText
         Interest=findViewById<View>(R.id.fdInterest) as EditText
@@ -80,16 +90,14 @@ class EmiCalculateActivity : AppCompatActivity() {
 
         }
 
-
-
-
-
-
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
 
-
-    fun emi(P: Double,I:Double,N:Double): Float {
+    fun emi(P: Double, I:Double, N:Double): Float {
         MonthlyPayment=findViewById<View>(R.id.MonthlyPayment) as TextView
         YearlyPayment=findViewById<View>(R.id.YearlyPayment) as TextView
         TotalWithInterest=findViewById<View>(R.id.TotalWithInterest) as TextView
@@ -104,10 +112,18 @@ class EmiCalculateActivity : AppCompatActivity() {
         var emiCalculationPerYear=emiCalculationPerMonth*12
         var totalInterest=(emiCalculationPerMonth*Month)-P
         var totalPayment=totalInterest+P
-        MonthlyPayment!!.text= emiCalculationPerMonth.toString().toFloat().toString()
-        YearlyPayment!!.text= emiCalculationPerYear.toString().toFloat().toString()
-        PayableInterest!!.text=totalInterest.toString().toFloat().toString()
-        TotalWithInterest!!.text=totalPayment.toString().toFloat().toString()
+
+
+
+        var emiCalculationPerMonth1:String="%.2f".format(emiCalculationPerMonth)
+        var emiCalculationPerYear1:String="%.2f".format(emiCalculationPerYear)
+        var totalInterest1:String="%.2f".format(totalInterest)
+        var totalPayment1:String="%.2f".format(totalPayment)
+
+        MonthlyPayment!!.text= emiCalculationPerMonth1.toString().toFloat().toString()
+        YearlyPayment!!.text= emiCalculationPerYear1.toString().toFloat().toString()
+        PayableInterest!!.text=totalInterest1.toString().toFloat().toString()
+        TotalWithInterest!!.text=totalPayment1.toString().toFloat().toString()
         return emiCalculationPerMonth
     }
 
