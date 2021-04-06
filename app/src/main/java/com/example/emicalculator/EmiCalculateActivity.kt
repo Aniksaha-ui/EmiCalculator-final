@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.ToggleButton
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 
@@ -23,7 +24,7 @@ class EmiCalculateActivity : AppCompatActivity() {
     private var TotalWithInterest:TextView?=null
     private var reset:Button?=null
     private var statstics:Button?=null
-
+    private var toggle1:ToggleButton?=null
     //End all the resources
 
 
@@ -50,13 +51,21 @@ class EmiCalculateActivity : AppCompatActivity() {
         YearlyPayment=findViewById<View>(R.id.YearlyPayment) as TextView
         TotalWithInterest=findViewById<View>(R.id.TotalWithInterest) as TextView
         PayableInterest=findViewById<View>(R.id.PayableInterest) as TextView
-
+        toggle1=findViewById<View>(R.id.toggle) as ToggleButton
 
 
         Calculator!!.setOnClickListener{
             var P=Principleamount!!.text.toString().toDouble()
             var N= Year!!.text.toString().toDouble()
             var I= Interest!!.text.toString().toDouble()
+
+            if(toggle1!!.isChecked()){
+                 N=N
+            }
+            else{
+                 N=N*12
+
+            }
 
                 emi(P,I,N)
         }
@@ -78,6 +87,14 @@ class EmiCalculateActivity : AppCompatActivity() {
             var P=Principleamount!!.text.toString().toDouble()
             var N= Year!!.text.toString().toDouble()
             var I= Interest!!.text.toString().toDouble()
+
+            if(toggle1!!.isChecked()){
+                N=N
+            }
+            else{
+                N=N*12
+            }
+
             var Emi= emi(P,I,N)
             val bundle = Bundle()
             bundle.putString("P", P.toDouble().toString())
@@ -103,7 +120,7 @@ class EmiCalculateActivity : AppCompatActivity() {
         TotalWithInterest=findViewById<View>(R.id.TotalWithInterest) as TextView
         PayableInterest=findViewById<View>(R.id.PayableInterest) as TextView
 
-        var Month=N*12
+        var Month=N
         var InterestValue=I/12/100
         var CommonPart=Math.pow(1+InterestValue,Month)
         var DivUp=(P*InterestValue*CommonPart)
@@ -127,8 +144,5 @@ class EmiCalculateActivity : AppCompatActivity() {
         return emiCalculationPerMonth
     }
 
-
-
-
-
 }
+
