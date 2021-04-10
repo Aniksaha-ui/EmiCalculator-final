@@ -154,6 +154,16 @@
             android:background="@drawable/corner_redius"
             android:inputType="numberDecimal" />
 
+        <ToggleButton
+            android:id="@+id/toggle2"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:textOff="year"
+            android:textOn="Month"
+            android:layout_marginTop="-57dp"
+            android:background="@drawable/corner_redius"
+            android:layout_marginLeft="174dp"/>
+
 
     </com.google.android.material.textfield.TextInputLayout>
 

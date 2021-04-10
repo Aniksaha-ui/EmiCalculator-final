@@ -1,12 +1,15 @@
 package com.example.emicalculator.fdcalculator
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.ToggleButton
 import androidx.appcompat.app.ActionBar
 import com.example.emicalculator.R
 import com.example.emicalculator.rdcalculator.rdStatisticsActivity
@@ -22,6 +25,7 @@ private var deposite:TextView?=null
 private var totalInterest:TextView?=null
 private var maturityAmount:TextView?=null
 private var absoluteAmount:TextView?=null
+private var toggle2: ToggleButton?=null
 
 
 
@@ -47,7 +51,7 @@ class FdActivity : AppCompatActivity() {
         totalInterest=findViewById<View>(R.id.totalInterest) as TextView
         maturityAmount=findViewById<View>(R.id.maturityAmount) as TextView
         absoluteAmount=findViewById<View>(R.id.absoluteAmount) as TextView
-
+        toggle2=findViewById<View>(R.id.toggle2) as ToggleButton
 
 
         reset!!.setOnClickListener {
@@ -64,29 +68,82 @@ class FdActivity : AppCompatActivity() {
 
 
         calculate!!.setOnClickListener {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
 
-            var P= DepositeAmount!!.text.toString().toDouble()
-            var R= Interest!!.text.toString().toDouble()
-            var N=4
-            var T= year!!.text.toString().toDouble()
-            FdCalculate(P,R,N,T)
+            if(DepositeAmount!!.length()==0){
+                DepositeAmount!!.setError("Enter Deposite amount")
+            }
+            else if(Interest!!.length()==0){
+                Interest!!.setError("Enter Interest Amount")
+            }
+            else if(year!!.length()==0){
+                year!!.setError("Enter Year")
+            }
+
+
+            else{
+
+                var P= DepositeAmount!!.text.toString().toDouble()
+                var R= Interest!!.text.toString().toDouble()
+                var N=4
+                var T= year!!.text.toString().toDouble()
+
+
+
+                if(toggle2!!.isChecked()){
+                    T=T/12
+                }
+                else{
+                    T=T
+
+                }
+                FdCalculate(P,R,N,T)
+
+            }
+
 
 
         }
 
         statstics!!.setOnClickListener {
-            var P= DepositeAmount!!.text.toString().toDouble()
-            var R= Interest!!.text.toString().toDouble()
-            var T= year!!.text.toString().toDouble()
 
-            val bundle = Bundle()
-            bundle.putString("P", P.toDouble().toString())
-            bundle.putString("R", R.toDouble().toString())
-            bundle.putString("T", T.toDouble().toString())
+            if(DepositeAmount!!.length()==0){
+                DepositeAmount!!.setError("Enter Deposite amount")
+            }
+            else if(Interest!!.length()==0){
+                Interest!!.setError("Enter Interest Amount")
+            }
+            else if(year!!.length()==0){
+                toggle2!!.setError("Enter Year")
+            }
 
-            val intent = Intent(this@FdActivity, FdStatisticsActivity::class.java)
-            intent.putExtras(bundle)
-            startActivity(intent)
+
+            else{
+
+                var P= DepositeAmount!!.text.toString().toDouble()
+                var R= Interest!!.text.toString().toDouble()
+                var T= year!!.text.toString().toDouble()
+
+
+                if(toggle2!!.isChecked()){
+                    T=T/12
+                }
+                else{
+                    T=T
+
+                }
+
+
+                val bundle = Bundle()
+                bundle.putString("P", P.toDouble().toString())
+                bundle.putString("R", R.toDouble().toString())
+                bundle.putString("T", T.toDouble().toString())
+                val intent = Intent(this@FdActivity, FdStatisticsActivity::class.java)
+                intent.putExtras(bundle)
+                startActivity(intent)
+            }
+
         }
 
 

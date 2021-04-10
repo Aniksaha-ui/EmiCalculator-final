@@ -1,9 +1,11 @@
 package com.example.emicalculator.rdcalculator
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -47,28 +49,58 @@ class RdActivity : AppCompatActivity() {
 
         calculate!!.setOnClickListener {
 
-            var P= DepositeAmount!!.text.toString().toDouble()
-            var R= Interest!!.text.toString().toDouble()
-            var T= year!!.text.toString().toDouble()
-            RdCalculation(P,R,T)
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
 
+            if(DepositeAmount!!.length()==0){
+                DepositeAmount!!.setError("Enter Deposite Amount")
+            }
+            else if(Interest!!.length()==0){
+                Interest!!.setError("Enter Interest Amount")
+            }
+
+            else if(year!!.length()==0){
+                year!!.setError("Enter year")
+            }
+
+            else{
+
+                var P= DepositeAmount!!.text.toString().toDouble()
+                var R= Interest!!.text.toString().toDouble()
+                var T= year!!.text.toString().toDouble()
+                RdCalculation(P,R,T)
+            }
 
         }
 
 
         statstics!!.setOnClickListener{
-            var P= DepositeAmount!!.text.toString().toDouble()
-            var R= Interest!!.text.toString().toDouble()
-            var T= year!!.text.toString().toDouble()
-            RdCalculation(P,R,T)
-            val bundle = Bundle()
-            bundle.putString("P", P.toDouble().toString())
-            bundle.putString("R", R.toDouble().toString())
-            bundle.putString("T", T.toDouble().toString())
 
-            val intent = Intent(this@RdActivity, rdStatisticsActivity::class.java)
-            intent.putExtras(bundle)
-            startActivity(intent)
+            if(DepositeAmount!!.length()==0){
+                DepositeAmount!!.setError("Enter Deposite Amount")
+            }
+            else if(Interest!!.length()==0){
+                Interest!!.setError("Enter Interest Amount")
+            }
+
+            else if(year!!.length()==0){
+                year!!.setError("Enter year")
+            }
+
+            else{
+                var P= DepositeAmount!!.text.toString().toDouble()
+                var R= Interest!!.text.toString().toDouble()
+                var T= year!!.text.toString().toDouble()
+                RdCalculation(P,R,T)
+                val bundle = Bundle()
+                bundle.putString("P", P.toDouble().toString())
+                bundle.putString("R", R.toDouble().toString())
+                bundle.putString("T", T.toDouble().toString())
+
+                val intent = Intent(this@RdActivity, rdStatisticsActivity::class.java)
+                intent.putExtras(bundle)
+                startActivity(intent)
+            }
         }
 
 

@@ -60,14 +60,38 @@ class LoanCompairActivity : AppCompatActivity() {
 
 
         Calculator!!.setOnClickListener{
-            var P=Principleamount1!!.text.toString().toDouble()
-            var N= Year1!!.text.toString().toDouble()
-            var I= Interest1!!.text.toString().toDouble()
-            var P1=Principleamount2!!.text.toString().toDouble()
-            var N1= Year2!!.text.toString().toDouble()
-            var I1= Interest2!!.text.toString().toDouble()
 
-            emi(P,I,N,P1,I1,N1)
+            if(Principleamount1!!.length()==0){
+                Principleamount1!!.setError("Enter Principle Amount")
+            }
+            else if(Interest1!!.length()==0){
+                Interest1!!.setError("Enter Interest Amount")
+            }
+            else if(Year1!!.length()==0){
+                Year1!!.setError("Enter Year")
+            }
+            else if(Principleamount2!!.length()==0){
+                Principleamount2!!.setError("Enter Priciple Amount")
+            }
+            else if(Interest2!!.length()==0){
+                Interest2!!.setError("Enter Interest Amount")
+            }
+            else if(Year2!!.length()==0){
+                Year2!!.setError("Enter Year")
+            }
+
+            else{
+
+                var P=Principleamount1!!.text.toString().toDouble()
+                var N= Year1!!.text.toString().toDouble()
+                var I= Interest1!!.text.toString().toDouble()
+                var P1=Principleamount2!!.text.toString().toDouble()
+                var N1= Year2!!.text.toString().toDouble()
+                var I1= Interest2!!.text.toString().toDouble()
+
+                emi(P,I,N,P1,I1,N1)
+            }
+
         }
 
 

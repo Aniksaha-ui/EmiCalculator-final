@@ -1,12 +1,16 @@
 package com.example.emicalculator
 
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.ToggleButton
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 
@@ -28,6 +32,7 @@ class EmiCalculateActivity : AppCompatActivity() {
     //End all the resources
 
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emi_calculate)
@@ -55,19 +60,56 @@ class EmiCalculateActivity : AppCompatActivity() {
 
 
         Calculator!!.setOnClickListener{
-            var P=Principleamount!!.text.toString().toDouble()
-            var N= Year!!.text.toString().toDouble()
-            var I= Interest!!.text.toString().toDouble()
 
-            if(toggle1!!.isChecked()){
-                 N=N
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+
+
+            if(Principleamount!!.length()==0){
+                Principleamount!!.setError("Enter Principle Amount")
             }
+
+            else if(Year!!.length()==0){
+                Year!!.setError("Enter Year")
+            }
+            else if(Interest!!.length()==0){
+                Interest!!.setError("Enter Interest Amount")
+            }
+
+            else if(Year!!.length()==0 && Interest!!.length()==0){
+                Year!!.setError("Enter Year")
+                Interest!!.setError("Enter Interest Amount")
+            }
+            else if(Principleamount!!.length()==0 && Interest!!.length()==0){
+                Principleamount!!.setError("Enter Principle Amount")
+                Interest!!.setError("Enter Interest Amount")
+            }
+
+            else if(Principleamount!!.length()==0 && Year!!.length()==0){
+                Principleamount!!.setError("Enter Principle Amount")
+                Year!!.setError("Enter Year")
+            }
+
+
+
             else{
-                 N=N*12
 
-            }
+                var P=Principleamount!!.text.toString().toDouble()
+                var N= Year!!.text.toString().toDouble()
+                var I= Interest!!.text.toString().toDouble()
+                if(toggle1!!.isChecked()){
+                    N=N
+                }
+                else{
+                    N=N*12
+
+                }
 
                 emi(P,I,N)
+            }
+
+
+
         }
 
 
@@ -84,26 +126,57 @@ class EmiCalculateActivity : AppCompatActivity() {
 
         statstics!!.setOnClickListener{
 
-            var P=Principleamount!!.text.toString().toDouble()
-            var N= Year!!.text.toString().toDouble()
-            var I= Interest!!.text.toString().toDouble()
-
-            if(toggle1!!.isChecked()){
-                N=N
+            if(Principleamount!!.length()==0){
+                Principleamount!!.setError("Enter Principle Amount")
             }
+
+            else if(Year!!.length()==0){
+                toggle1!!.setError("Enter Year")
+            }
+            else if(Interest!!.length()==0){
+                Interest!!.setError("Enter Interest Amount")
+            }
+
+            else if(Year!!.length()==0 && Interest!!.length()==0){
+                toggle1!!.setError("Enter Year")
+                Interest!!.setError("Enter Interest Amount")
+            }
+            else if(Principleamount!!.length()==0 && Interest!!.length()==0){
+                Principleamount!!.setError("Enter Principle Amount")
+                Interest!!.setError("Enter Interest Amount")
+            }
+
+            else if(Principleamount!!.length()==0 && Year!!.length()==0){
+                Principleamount!!.setError("Enter Principle Amount")
+                toggle1!!.setError("Enter Year")
+            }
+
+
             else{
-                N=N*12
+
+                var P=Principleamount!!.text.toString().toDouble()
+                var N= Year!!.text.toString().toDouble()
+                var I= Interest!!.text.toString().toDouble()
+
+                if(toggle1!!.isChecked()){
+                    N=N
+                }
+                else{
+                    N=N*12
+                }
+
+                var Emi= emi(P,I,N)
+                val bundle = Bundle()
+                bundle.putString("P", P.toDouble().toString())
+                bundle.putString("N", N.toDouble().toString())
+                bundle.putString("I", I.toDouble().toString())
+                bundle.putString("Emi", Emi.toString())
+                val intent = Intent(this@EmiCalculateActivity, emiStatiscticsActivity::class.java)
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
 
-            var Emi= emi(P,I,N)
-            val bundle = Bundle()
-            bundle.putString("P", P.toDouble().toString())
-            bundle.putString("N", N.toDouble().toString())
-            bundle.putString("I", I.toDouble().toString())
-            bundle.putString("Emi", Emi.toString())
-            val intent = Intent(this@EmiCalculateActivity, emiStatiscticsActivity::class.java)
-            intent.putExtras(bundle)
-            startActivity(intent)
+
 
         }
 
