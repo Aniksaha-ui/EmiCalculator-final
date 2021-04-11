@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
+import androidx.core.app.NavUtils
 import com.example.emicalculator.R
 
 private var DepositeAmount: EditText?=null
@@ -115,6 +117,17 @@ class RdActivity : AppCompatActivity() {
 
         }
 
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                NavUtils.navigateUpFromSameTask(this)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     public fun RdCalculation(p: Double, r: Double, t: Double) {

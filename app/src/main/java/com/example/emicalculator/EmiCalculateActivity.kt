@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -13,6 +14,10 @@ import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NavUtils
+
+
+
 
 
 class EmiCalculateActivity : AppCompatActivity() {
@@ -180,6 +185,17 @@ class EmiCalculateActivity : AppCompatActivity() {
 
         }
 
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                NavUtils.navigateUpFromSameTask(this)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

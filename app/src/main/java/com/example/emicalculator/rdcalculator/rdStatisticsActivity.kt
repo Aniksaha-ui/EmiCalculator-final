@@ -1,9 +1,11 @@
 package com.example.emicalculator.rdcalculator
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.LinearLayout
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NavUtils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.emicalculator.R
@@ -128,13 +130,18 @@ class rdStatisticsActivity : AppCompatActivity() {
 
 
 
-
-
-
-
-
-
-
-
     }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                NavUtils.navigateUpFromSameTask(this)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
 }

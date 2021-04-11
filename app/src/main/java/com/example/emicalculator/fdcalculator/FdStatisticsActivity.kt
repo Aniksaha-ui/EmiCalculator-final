@@ -2,8 +2,10 @@ package com.example.emicalculator.fdcalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.LinearLayout
 import androidx.appcompat.app.ActionBar
+import androidx.core.app.NavUtils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.emicalculator.R
@@ -116,4 +118,15 @@ class FdStatisticsActivity : AppCompatActivity() {
         //now adding the adapter to recyclerview
         recyclerView.adapter = adapter
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                NavUtils.navigateUpFromSameTask(this)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }
+
