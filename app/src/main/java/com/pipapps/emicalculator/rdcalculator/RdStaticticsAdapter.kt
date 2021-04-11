@@ -1,11 +1,11 @@
-package com.example.emicalculator.rdcalculator
+package com.pipapps.emicalculator.rdcalculator
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.emicalculator.R
+import com.pipapps.emicalculator.R
 
 class RdStatsticsAdapter(val statistics: ArrayList<RdStatisticsData>) : RecyclerView.Adapter<RdStatsticsAdapter.ViewHolder>() {
 

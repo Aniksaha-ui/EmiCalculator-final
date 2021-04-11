@@ -6,15 +6,18 @@
     android:layout_height="match_parent"
     android:background="@drawable/layer_51"
     android:orientation="vertical"
-    tools:context=".EmiCalculateActivity">
-
+    android:paddingLeft="30dp"
+    android:paddingTop="@dimen/fab_margin"
+    android:paddingRight="30dp"
+    android:paddingBottom="@dimen/fab_margin"
+    tools:context=".RateOfInterestActivity">
 
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="260dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:gravity="center"
         android:text="Principle Amount"
         android:textColor="#2F3293"
         android:textSize="20sp"
@@ -27,7 +30,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="62dp"
         app:boxBackgroundMode="outline"
         app:errorEnabled="true"
@@ -54,10 +57,10 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="228dp"
+        android:layout_width="match_parent"
         android:layout_height="29dp"
         android:gravity="center_horizontal"
-        android:text="Interest Amount"
+        android:text="@string/emi_per_month"
         android:textAlignment="center"
         android:textColor="#2F3293"
         android:textSize="20sp"
@@ -70,7 +73,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="62dp"
         app:boxBackgroundMode="outline"
         app:errorEnabled="true"
@@ -86,9 +89,9 @@
             android:id="@+id/fdInterest"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:padding="2dp"
             android:background="@drawable/corner_redius"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:padding="2dp" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -99,9 +102,9 @@
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textColor="#2F3293"
-        android:text="Loan Tenure"
+        android:text="@string/loan_tenure"
         android:textAlignment="center"
+        android:textColor="#2F3293"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,8 +116,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="62dp"
+        android:gravity="right"
         app:boxBackgroundMode="outline"
         app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -130,23 +134,21 @@
             android:id="@+id/year"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:padding="2dp"
             android:background="@drawable/corner_redius"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:padding="2dp" />
 
         <ToggleButton
             android:id="@+id/toggle"
             android:layout_width="70dp"
             android:layout_height="40dp"
-            android:textOff="year"
-            android:textOn="Month"
             android:layout_marginTop="-57dp"
             android:background="@drawable/corner_redius"
-            android:layout_marginLeft="174dp"/>
+            android:textOff="year"
+            android:textOn="Month" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <LinearLayout
@@ -170,9 +172,9 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:textSize="10sp"
             android:background="@drawable/buttonredius"
             android:text="reset"
+            android:textSize="10sp"
 
 
             />
@@ -185,8 +187,8 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:background="@drawable/buttonredius"
-            android:textSize="10sp"
-            android:text="calculate" />
+            android:text="calculate"
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/statstics"
@@ -196,19 +198,21 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:textSize="10sp"
             android:background="@drawable/buttonredius"
-            android:text="Satistics" />
+            android:text="Satistics"
+            android:textSize="10sp" />
 
     </LinearLayout>
 
 
-    <RelativeLayout
-        android:background="@drawable/table_a"
+    <LinearLayout
         android:id="@+id/Relativelayout1"
-        android:layout_width="385dp"
-        android:layout_height="190dp"
-        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="220dp"
+        android:background="@drawable/table_a"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:weightSum="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -220,35 +224,24 @@
 
         <LinearLayout
             android:id="@+id/linearLayout8"
-            android:layout_width="346dp"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="19dp"
-            android:layout_marginLeft="19dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="35dp"
-            android:layout_marginRight="35dp"
-            android:layout_marginBottom="144dp"
-            android:weightSum="2">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
 
             <TextView
-                android:layout_width="120dp"
-                android:layout_height="24dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Monthly Payment"
                 android:textAlignment="center"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="120dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="80dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Yearly Payment"
                 android:textAlignment="center"
@@ -260,27 +253,16 @@
 
         <LinearLayout
             android:id="@+id/linearLayout9"
-            android:layout_width="345dp"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="18dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="33dp"
-            android:layout_marginEnd="37dp"
-            android:layout_marginRight="37dp"
-            android:layout_marginBottom="117dp"
-
-            >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/MonthlyPayment"
-                android:layout_width="120dp"
-                android:layout_height="24dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="0.0"
                 android:textAlignment="center"
@@ -289,9 +271,9 @@
 
             <TextView
                 android:id="@+id/YearlyPayment"
-                android:layout_width="120dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="80dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="0.0"
                 android:textAlignment="center"
@@ -302,34 +284,24 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="323dp"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginEnd="41dp"
-            android:layout_marginRight="41dp"
-            android:layout_marginBottom="60dp"
-            android:weightSum="2">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
 
             <TextView
-
-                android:layout_width="120dp"
-                android:layout_height="20dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Total Interest Payable"
                 android:textAlignment="center"
                 android:textStyle="bold" />
 
             <TextView
-
-                android:layout_width="120dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="80dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Interest + Total"
                 android:textAlignment="center"
@@ -340,25 +312,17 @@
 
 
         <LinearLayout
-            android:layout_width="333dp"
-            android:layout_height="33dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="22dp"
-            android:layout_marginLeft="22dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="42dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
 
             <TextView
                 android:id="@+id/PayableInterest"
-                android:layout_width="120dp"
-                android:layout_height="24dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="0.0"
                 android:textAlignment="center"
@@ -367,9 +331,9 @@
 
             <TextView
                 android:id="@+id/TotalWithInterest"
-                android:layout_width="120dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="80dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="0.0"
                 android:textAlignment="center"
@@ -380,7 +344,7 @@
         </LinearLayout>
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

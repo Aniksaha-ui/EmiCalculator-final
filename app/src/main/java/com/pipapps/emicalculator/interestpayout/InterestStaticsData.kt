@@ -1,4 +1,4 @@
-package com.example.emicalculator.interestpayout
+package com.pipapps.emicalculator.interestpayout
 
 data class InterestStaticsData (
 

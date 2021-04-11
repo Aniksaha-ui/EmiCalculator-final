@@ -1,8 +1,9 @@
-package com.example.emicalculator
+package com.pipapps.emicalculator
 
 import StatsticsAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +13,7 @@ import android.widget.LinearLayout as LinearLayout1
 import androidx.recyclerview.widget.LinearLayoutManager as LinearLayoutManager
 
 
-class emiStatiscticsActivity : AppCompatActivity() {
+class EmiStatiscticsActivity : AppCompatActivity() {
 
     private var yearCount: TextView?=null
     private var principleCount:TextView?=null
@@ -29,7 +30,6 @@ class emiStatiscticsActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         supportActionBar!!.setCustomView(R.layout.action_bar_layout2);
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setTitle("EMI Calculator")
 
         val bundle = intent.extras
@@ -42,7 +42,7 @@ class emiStatiscticsActivity : AppCompatActivity() {
 
         val recyclerView = findViewById(R.id.recyclerView) as RecyclerView
 
-        recyclerView.layoutManager=LinearLayoutManager(this@emiStatiscticsActivity, LinearLayout1.VERTICAL,
+        recyclerView.layoutManager=LinearLayoutManager(this@EmiStatiscticsActivity, LinearLayout1.VERTICAL,
             false)
         val count = ArrayList<StatisticsData>()
 
@@ -73,5 +73,17 @@ class emiStatiscticsActivity : AppCompatActivity() {
         //now adding the adapter to recyclerview
         recyclerView.adapter = adapter
 
+    }
+
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

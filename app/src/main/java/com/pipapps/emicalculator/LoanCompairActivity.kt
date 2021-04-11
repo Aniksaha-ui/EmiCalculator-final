@@ -1,7 +1,8 @@
-package com.example.emicalculator
+package com.pipapps.emicalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -141,6 +142,16 @@ class LoanCompairActivity : AppCompatActivity() {
         return emiCalculationPerMonth
     }
 
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
 
 }

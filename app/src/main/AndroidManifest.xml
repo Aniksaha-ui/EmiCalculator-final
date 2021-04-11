@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.emicalculator">
+    package="com.pipapps.emicalculator">
 
     <application
         android:allowBackup="true"
@@ -9,42 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EMICalculator">
-        <activity android:name=".LoanCompairActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".interestpayout.InterestStatisticsActivity"
-            android:parentActivityName=".fdcalculator.InterestPayoutActivity"
-            />
-        <activity android:name=".fdcalculator.FdStatisticsActivity"
-            android:parentActivityName=".fdcalculator.FdActivity"
-            />
-        <activity android:name=".fdcalculator.FdStatisticsAdapter" />
-        <activity android:name=".rdcalculator.rdStatisticsActivity"
-            android:parentActivityName=".rdcalculator.RdActivity"
-            />
-        <activity android:name=".rdcalculator.rdStatistics"
-            android:parentActivityName=".rdcalculator.RdActivity"
-            />
-        <activity android:name=".rdcalculator.rdStatisctics"
-            android:parentActivityName=".rdcalculator.RdActivity"/>
-        <activity android:name=".rdcalculator.RdActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".fdcalculator.InterestPayoutActivity" />
-        <activity android:name=".fdcalculator.FdActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".StatiscticsActivityNew" />
-        <activity android:name=".emiStatiscticsActivity"
-                  android:parentActivityName=".EmiCalculateActivity"
-            />
+        <activity android:name=".RateOfInterestActivity"></activity>
         <activity
-            android:name=".StatisticsActivity"
-            android:label="@string/title_activity_statistics"
-            android:theme="@style/Theme.EMICalculator" />
-        <activity android:name=".EmiCalculateActivity"
-            android:parentActivityName=".MainActivity"
-            />
+            android:name=".LoanCompairActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".interestpayout.InterestStatisticsActivity"
+            android:parentActivityName=".fdcalculator.InterestPayoutActivity" />
+        <activity
+            android:name=".fdcalculator.FdStatisticsActivity"
+            android:parentActivityName=".fdcalculator.FdActivity" />
+        <activity
+            android:name=".rdcalculator.RdStatisticsActivity"
+            android:parentActivityName=".rdcalculator.RdActivity" />
+        <activity
+            android:name=".rdcalculator.RdActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".fdcalculator.InterestPayoutActivity" />
+        <activity
+            android:name=".fdcalculator.FdActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".EmiStatiscticsActivity"
+            android:parentActivityName=".EmiCalculateActivity" />
+        <activity android:name=".EmiCalculateActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

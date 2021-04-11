@@ -1,4 +1,4 @@
-package com.example.emicalculator.interestpayout
+package com.pipapps.emicalculator.fdcalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,18 +8,15 @@ import androidx.appcompat.app.ActionBar
 import androidx.core.app.NavUtils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.emicalculator.R
-import com.example.emicalculator.StatisticsData
-import com.example.emicalculator.fdcalculator.FdStatisticsData
-import com.example.emicalculator.fdcalculator.InterestPayoutActivity
+import com.pipapps.emicalculator.R
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
-class InterestStatisticsActivity : AppCompatActivity() {
+class FdStatisticsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_interest_statistics)
+        setContentView(R.layout.activity_fd_statistics)
         supportActionBar!!.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         supportActionBar!!.setCustomView(R.layout.action_bar_layout2);
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -32,18 +29,17 @@ class InterestStatisticsActivity : AppCompatActivity() {
             val R= bundle!!.getString("R")
             val T=bundle!!.getString("T")
         }
+        val recyclerView = findViewById(R.id.recyclerView3) as RecyclerView
 
-
-        val recyclerView = findViewById(R.id.recyclerView5) as RecyclerView
-
-        recyclerView.layoutManager= LinearLayoutManager(this@InterestStatisticsActivity, LinearLayout.VERTICAL,
+        recyclerView.layoutManager= LinearLayoutManager(this@FdStatisticsActivity, LinearLayout.VERTICAL,
             false)
 
-        val count = ArrayList<InterestStaticsData>()
+
+        val count = ArrayList<FdStatisticsData>()
+
         var P = bundle!!.getString("P")!!.toFloat()
         var R= bundle!!.getString("R")!!.toFloat()
         var T= bundle!!.getString("T")!!.toFloat()
-
 
         var month=T*12
         var cal = Calendar.getInstance()
@@ -59,6 +55,7 @@ class InterestStatisticsActivity : AppCompatActivity() {
         var a=0
         var month2=0
 
+
         while(month>=1.0){
 
 
@@ -69,46 +66,56 @@ class InterestStatisticsActivity : AppCompatActivity() {
             var dailyInterest=(R/365)
             var monthlyInterst=dailyInterest* maxDay
             var monthlyinterestAmount= ((monthlyInterst*principle)/100)
+            var monthlyinterestAmount2:String="%.2f".format(monthlyinterestAmount)
 
+            if(countmonth%4!=3){
 
-            var monthlyinterestAmount1:String="%.2f".format(monthlyinterestAmount)
-
-
-
-                interestshow= monthlyinterestAmount.toFloat().toDouble()
-            var interestshow1:String="%.2f".format(interestshow)
+                interestshow= (interestshow+monthlyinterestAmount).toFloat().toDouble()
 
                 countmonth++
-                a= (a+interestshow).toInt()
-                count.add(InterestStaticsData(i.toString(),monthlyinterestAmount1.toString(),interestshow1.toString(),principle.toString()))
+                a=0
+                count.add(FdStatisticsData(i.toString(),monthlyinterestAmount2.toString(),a.toString(),previousprinciple.toString()))
                 month--
                 i++
                 month2=month.toInt()
+            }
+
+            else if(countmonth%4==3){
+
+
+                a= (interestshow+monthlyinterestAmount).toInt()
+                countmonth=1
+                interestshow=0.0
+
+                principle= ((principle).toInt().toFloat()+a.toFloat()).toDouble()
+                previousprinciple= principle.roundToInt()
+                count.add(FdStatisticsData(i.toString(),monthlyinterestAmount2.toString(),a.toString(),principle.toString()))
+                month--
+                i++
+                month2=month.toInt()
+
+            }
+
+
+
 
 
         }
 
 
 
+        
 
 
 
-
-
+//        count.add(FdStatisticsData(const.toString(),const.toString(),const.toString(),const.toString()))
+//        count.add(FdStatisticsData(const.toString(),const.toString(),const.toString(),const.toString()))
 
         //creating our adapter
-        val adapter = InterestStatsticsAdapter(count)
+        val adapter = FdStatsticsAdapter(count)
         //now adding the adapter to recyclerview
         recyclerView.adapter = adapter
-
-
-
-
-
-
-
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -119,5 +126,5 @@ class InterestStatisticsActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 }
+

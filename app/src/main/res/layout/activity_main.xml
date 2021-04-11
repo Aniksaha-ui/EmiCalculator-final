@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/emiCalculator"
-                android:text="Emi_calculator"
+                android:text="@string/emi_calculator"
                 android:textColor="#2F3293"
                 android:layout_marginLeft="18dp"
                 android:textSize="14dp" />
@@ -92,10 +92,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/compare_loan"
-                android:text="Compare lone"
+                android:text="Compare loan"
                 android:textColor="#2F3293"
                 android:layout_marginLeft="18dp"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
         </RelativeLayout>
 

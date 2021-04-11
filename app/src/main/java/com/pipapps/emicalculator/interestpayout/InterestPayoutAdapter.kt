@@ -1,15 +1,14 @@
-package com.example.emicalculator.interestpayout
+package com.pipapps.emicalculator.interestpayout
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.emicalculator.R
-import com.example.emicalculator.fdcalculator.FdStatisticsData
+import com.pipapps.emicalculator.R
 
 
-class InterestStatsticsAdapter(val statistics: ArrayList<InterestStaticsData>) : RecyclerView.Adapter<InterestStatsticsAdapter.ViewHolder>() {
+class InterestStatisticsAdapter(val statistics: ArrayList<InterestStaticsData>) : RecyclerView.Adapter<InterestStatisticsAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

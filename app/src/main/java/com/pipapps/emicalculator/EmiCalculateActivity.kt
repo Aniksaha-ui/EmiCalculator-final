@@ -1,4 +1,4 @@
-package com.example.emicalculator
+package com.pipapps.emicalculator
 
 import android.content.Context
 import android.content.Intent
@@ -15,10 +15,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
-
-
-
-
+import kotlinx.android.synthetic.main.activity_emi_calculate.*
 
 class EmiCalculateActivity : AppCompatActivity() {
 
@@ -29,7 +26,7 @@ class EmiCalculateActivity : AppCompatActivity() {
     private var Calculator:Button?=null
     private var MonthlyPayment:TextView?=null
     private var YearlyPayment:TextView?=null
-    private var PayableInterest:TextView?=null
+    private var payableInterest:TextView?=null
     private var TotalWithInterest:TextView?=null
     private var reset:Button?=null
     private var statstics:Button?=null
@@ -43,11 +40,10 @@ class EmiCalculateActivity : AppCompatActivity() {
         setContentView(R.layout.activity_emi_calculate)
 //        supportActionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
 //        supportActionBar.setCustomView(R.layooou.toolbar)
-        supportActionBar!!.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM;
         supportActionBar!!.setCustomView(R.layout.action_bar_layout2);
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setTitle("EMI Calculator")
+        supportActionBar!!.title = "EMI Calculator"
 
 
 
@@ -60,18 +56,20 @@ class EmiCalculateActivity : AppCompatActivity() {
         MonthlyPayment=findViewById<View>(R.id.MonthlyPayment) as TextView
         YearlyPayment=findViewById<View>(R.id.YearlyPayment) as TextView
         TotalWithInterest=findViewById<View>(R.id.TotalWithInterest) as TextView
-        PayableInterest=findViewById<View>(R.id.PayableInterest) as TextView
+        payableInterest=findViewById<View>(R.id.PayableInterest) as TextView
         toggle1=findViewById<View>(R.id.toggle) as ToggleButton
 
 
         Calculator!!.setOnClickListener{
+
+            if(currentFocus == null) return@setOnClickListener
 
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
 
 
             if(Principleamount!!.length()==0){
-                Principleamount!!.setError("Enter Principle Amount")
+                Principleamount!!.setError(getString(R.string.get_principal_amount))
             }
 
             else if(Year!!.length()==0){
@@ -125,7 +123,7 @@ class EmiCalculateActivity : AppCompatActivity() {
                 MonthlyPayment!!.text="0.0".toString()
                 YearlyPayment!!.text="0.0".toString()
                 TotalWithInterest!!.text="0.0".toString()
-                PayableInterest!!.text="0.0".toString()
+                payableInterest!!.text="0.0".toString()
         }
 
 
@@ -176,7 +174,7 @@ class EmiCalculateActivity : AppCompatActivity() {
                 bundle.putString("N", N.toDouble().toString())
                 bundle.putString("I", I.toDouble().toString())
                 bundle.putString("Emi", Emi.toString())
-                val intent = Intent(this@EmiCalculateActivity, emiStatiscticsActivity::class.java)
+                val intent = Intent(this@EmiCalculateActivity, EmiStatiscticsActivity::class.java)
                 intent.putExtras(bundle)
                 startActivity(intent)
             }
@@ -191,7 +189,7 @@ class EmiCalculateActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                NavUtils.navigateUpFromSameTask(this)
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -207,10 +205,10 @@ class EmiCalculateActivity : AppCompatActivity() {
         MonthlyPayment=findViewById<View>(R.id.MonthlyPayment) as TextView
         YearlyPayment=findViewById<View>(R.id.YearlyPayment) as TextView
         TotalWithInterest=findViewById<View>(R.id.TotalWithInterest) as TextView
-        PayableInterest=findViewById<View>(R.id.PayableInterest) as TextView
+        payableInterest=findViewById<View>(R.id.PayableInterest) as TextView
 
         var Month=N
-        var InterestValue=I/12/100
+        val InterestValue=I/12/100
         var CommonPart=Math.pow(1+InterestValue,Month)
         var DivUp=(P*InterestValue*CommonPart)
         var DivDown=CommonPart-1
@@ -228,7 +226,7 @@ class EmiCalculateActivity : AppCompatActivity() {
 
         MonthlyPayment!!.text= emiCalculationPerMonth1.toString().toFloat().toString()
         YearlyPayment!!.text= emiCalculationPerYear1.toString().toFloat().toString()
-        PayableInterest!!.text=totalInterest1.toString().toFloat().toString()
+        payableInterest!!.text=totalInterest1.toString().toFloat().toString()
         TotalWithInterest!!.text=totalPayment1.toString().toFloat().toString()
         return emiCalculationPerMonth
     }

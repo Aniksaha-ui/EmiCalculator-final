@@ -1,4 +1,4 @@
-package com.example.emicalculator.rdcalculator
+package com.pipapps.emicalculator.rdcalculator
 
 data class RdStatisticsData (
 

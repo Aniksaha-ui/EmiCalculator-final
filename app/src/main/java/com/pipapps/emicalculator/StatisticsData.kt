@@ -1,6 +1,4 @@
-package com.example.emicalculator
-
-import java.time.Year
+package com.pipapps.emicalculator
 
 data class StatisticsData (
 

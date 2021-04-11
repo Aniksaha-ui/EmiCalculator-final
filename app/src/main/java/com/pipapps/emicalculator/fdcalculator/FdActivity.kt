@@ -1,4 +1,4 @@
-package com.example.emicalculator.fdcalculator
+package com.pipapps.emicalculator.fdcalculator
 
 import android.content.Context
 import android.content.Intent
@@ -13,8 +13,7 @@ import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.appcompat.app.ActionBar
 import androidx.core.app.NavUtils
-import com.example.emicalculator.R
-import com.example.emicalculator.rdcalculator.rdStatisticsActivity
+import com.pipapps.emicalculator.R
 
 
 private var DepositeAmount:EditText?=null

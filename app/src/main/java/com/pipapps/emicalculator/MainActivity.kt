@@ -1,20 +1,21 @@
-package com.example.emicalculator
+package com.pipapps.emicalculator
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.ActionBar
-import com.example.emicalculator.fdcalculator.FdActivity
-import com.example.emicalculator.fdcalculator.InterestPayoutActivity
-import com.example.emicalculator.rdcalculator.RdActivity
+import com.pipapps.emicalculator.fdcalculator.FdActivity
+import com.pipapps.emicalculator.fdcalculator.InterestPayoutActivity
+import com.pipapps.emicalculator.rdcalculator.RdActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar!!.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM;
         supportActionBar!!.setCustomView(R.layout.action_bar_layout);
 
         findViewById<View>(R.id.emiCalculator).setOnClickListener {
@@ -28,8 +29,11 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-//
-//
+        rateofInterest.setOnClickListener {
+            val intent = Intent(this@MainActivity, RateOfInterestActivity::class.java)
+            startActivity(intent)
+        }
+
         findViewById<View>(R.id.fixedDeposite).setOnClickListener{
             val intent=Intent(this@MainActivity, FdActivity::class.java)
             startActivity(intent)
@@ -50,16 +54,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }

@@ -1,12 +1,11 @@
-package com.example.emicalculator.fdcalculator
+package com.pipapps.emicalculator.fdcalculator
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.emicalculator.R
-import com.example.emicalculator.rdcalculator.RdStatisticsData
+import com.pipapps.emicalculator.R
 
 class FdStatsticsAdapter(val statistics: ArrayList<FdStatisticsData>) : RecyclerView.Adapter<FdStatsticsAdapter.ViewHolder>() {
 

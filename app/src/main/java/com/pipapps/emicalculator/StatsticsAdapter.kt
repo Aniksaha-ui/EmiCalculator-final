@@ -3,8 +3,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.emicalculator.R
-import com.example.emicalculator.StatisticsData
+import com.pipapps.emicalculator.R
+import com.pipapps.emicalculator.StatisticsData
 
 class StatsticsAdapter(val statistics: ArrayList<StatisticsData>) : RecyclerView.Adapter<StatsticsAdapter.ViewHolder>() {
 

@@ -1,4 +1,4 @@
-package com.example.emicalculator.rdcalculator
+package com.pipapps.emicalculator.rdcalculator
 
 import android.content.Context
 import android.content.Intent
@@ -12,7 +12,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.core.app.NavUtils
-import com.example.emicalculator.R
+import com.pipapps.emicalculator.R
 
 private var DepositeAmount: EditText?=null
 private var Interest: EditText?=null
@@ -99,7 +99,7 @@ class RdActivity : AppCompatActivity() {
                 bundle.putString("R", R.toDouble().toString())
                 bundle.putString("T", T.toDouble().toString())
 
-                val intent = Intent(this@RdActivity, rdStatisticsActivity::class.java)
+                val intent = Intent(this@RdActivity, RdStatisticsActivity::class.java)
                 intent.putExtras(bundle)
                 startActivity(intent)
             }
