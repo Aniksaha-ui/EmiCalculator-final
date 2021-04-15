@@ -63,54 +63,54 @@ class EmiCalculateActivity : AppCompatActivity() {
 
 
         //for display comma
-
-        Monthlydeposite!!.addTextChangedListener(object : TextWatcher {
-            override fun onTextChanged(
-                s: CharSequence, start: Int,
-                before: Int, count: Int
-            ) {
-                // TODO Auto-generated method stub
-            }
-
-            override fun beforeTextChanged(
-                s: CharSequence, start: Int,
-                before: Int, count: Int
-            ) {
-                // TODO Auto-generated method stub
-            }
-
-            override fun afterTextChanged(s: Editable) {
-                // TODO Auto-generated method stub
-                if (s.toString().trim { it <= ' ' }.length > 0) {
-                    val rentValue = s.toString()
-                        .replace(",".toRegex(), "").toInt()
-                    var rentVal = StringBuffer()
-                    if (rentValue > 10000000) {
-                        s.clear()
-                        s.append("10,000,000")
-                    } else {
-                        if (s.length == 4) {
-                            val x = s.toString().toCharArray()
-                            val y = CharArray(x.size + 1)
-                            for (z in y.indices) {
-                                if (z == 1) {
-                                    y[1] = ','
-                                } else {
-                                    if (z == 0) y[z] = x[z] else {
-                                        y[z] = x[z - 1]
-                                    }
-                                }
-                            }
-                            for (z in y.indices) {
-                                rentVal = rentVal.append(y[z])
-                            }
-                            s.clear()
-                            s.append(rentVal)
-                        }
-                    }
-                }
-            }
-        })
+//
+//        Monthlydeposite!!.addTextChangedListener(object : TextWatcher {
+//            override fun onTextChanged(
+//                s: CharSequence, start: Int,
+//                before: Int, count: Int
+//            ) {
+//                // TODO Auto-generated method stub
+//            }
+//
+//            override fun beforeTextChanged(
+//                s: CharSequence, start: Int,
+//                before: Int, count: Int
+//            ) {
+//                // TODO Auto-generated method stub
+//            }
+//
+//            override fun afterTextChanged(s: Editable) {
+//                // TODO Auto-generated method stub
+//                if (s.toString().trim { it <= ' ' }.length > 0) {
+//                    val rentValue = s.toString()
+//                        .replace(",".toRegex(), "").toInt()
+//                    var rentVal = StringBuffer()
+//                    if (rentValue > 10000000) {
+//                        s.clear()
+//                        s.append("10,000,000")
+//                    } else {
+//                        if (s.length == 4) {
+//                            val x = s.toString().toCharArray()
+//                            val y = CharArray(x.size + 1)
+//                            for (z in y.indices) {
+//                                if (z == 1) {
+//                                    y[1] = ','
+//                                } else {
+//                                    if (z == 0) y[z] = x[z] else {
+//                                        y[z] = x[z - 1]
+//                                    }
+//                                }
+//                            }
+//                            for (z in y.indices) {
+//                                rentVal = rentVal.append(y[z])
+//                            }
+//                            s.clear()
+//                            s.append(rentVal)
+//                        }
+//                    }
+//                }
+//            }
+//        })
 
         //for display comma end
 

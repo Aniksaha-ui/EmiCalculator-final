@@ -1,7 +1,6 @@
 package com.pipapps.emicalculator
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -10,6 +9,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 
 class RateOfInterestActivity : AppCompatActivity() {
 
@@ -85,21 +85,48 @@ class RateOfInterestActivity : AppCompatActivity() {
     }
 
     fun RateofInterest(p: Double, n: Double, e: Double) {
-            var rateofinterest:Double= 0.0
-           var upperpart=(e-(e/p))
-           var powerpart=(1/n)-1
-           var yearlypayment=e*12
 
-          rateofinterest= Math.pow(upperpart,powerpart)
+        var yearlypayment=e*12
+        var p1=p.toDouble()
+        var e1=e.toDouble()
+        var month=n.toDouble()
+
+        val log = Math.log(1.0 / (month) + 1.0) / Math.log(2.0)
+        val pow = ((Math.pow(Math.pow(e1 / p1 + 1.0, 1.0 / log) - 1.0, log) - 1.0) * 1200.0).toDouble()
+
+
+        val InterestValue=pow/12/100
+        var CommonPart=Math.pow(1+InterestValue,month)
+        var DivUp=(p1*InterestValue*CommonPart)
+        var DivDown=CommonPart-1
+        var emiCalculationPerMonth:Float=((DivUp/DivDown).toFloat())
+        var emiCalculationPerYear=emiCalculationPerMonth*12
+        var totalInterest=(emiCalculationPerMonth*month)-p1
+        var totalPayment=totalInterest+p1
+
+
+        var yearlypayment1:String="%.2f".format(yearlypayment)
+        var pow1:String="%.2f".format(pow)
+        var totalInterest1:String="%.2f".format(totalInterest)
+        var totalPayment1:String="%.2f".format(totalPayment)
+
         interestRate=findViewById<View>(R.id.interestRate) as TextView
         yearlyPayment=findViewById<View>(R.id.yearlyPayment) as TextView
         TotalWithInterest=findViewById<View>(R.id.TotalWithInterest) as TextView
         payableInterest=findViewById<View>(R.id.PayableInterest) as TextView
-        var rateofinterest1:String="%.2f".format(rateofinterest)
-        var yearlypayment1:String="%.2f".format(yearlypayment)
 
-        interestRate!!.text=rateofinterest1!!.toString().toFloat().toString()
+
+
+
+
+
+
+
+        interestRate!!.text=pow1!!.toString().toFloat().toString()
         yearlyPayment!!.text=yearlypayment1!!.toString().toFloat().toString()
+        payableInterest!!.text=totalInterest1.toString().toFloat().toString()
+        TotalWithInterest!!.text=totalPayment.toString().toFloat().toString()
+
 
 
     }

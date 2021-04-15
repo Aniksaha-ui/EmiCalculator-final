@@ -26,7 +26,7 @@
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050" />
+        app:layout_constraintVertical_bias="0.010" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -159,9 +159,10 @@
         android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-        app:layout_constraintVertical_bias="0.052">
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
 
@@ -204,7 +205,6 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/Relativelayout1"
         android:layout_width="wrap_content"
@@ -218,7 +218,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.130"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints">
 
 
