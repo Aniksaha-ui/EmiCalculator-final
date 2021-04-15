@@ -13,4 +13,8 @@
     <string name="emi_calculator">Emi Calculator</string>
     <string name="emi_per_month">EMI (per month)</string>
     <string name="loan_tenure">Loan Tenure (max 50 years)</string>
+    <string name="year">Enter Year</string>
+    <string name="emierror">Enter Emi per month</string>
+    <string name="RD">Recurring Deposite</string>
+    <string name="interestPayout">Interest Payout</string>
 </resources>

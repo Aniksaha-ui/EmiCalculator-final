@@ -157,6 +157,8 @@
             android:inputType="numberDecimal" />
 
 
+
+
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -342,7 +344,7 @@
 
                 android:layout_width="120dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="70dp"
                 android:gravity="center_horizontal"
                 android:text="Absolute Return"
                 android:textAlignment="center"

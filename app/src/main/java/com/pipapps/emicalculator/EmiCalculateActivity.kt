@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -14,8 +16,8 @@ import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NavUtils
-import kotlinx.android.synthetic.main.activity_emi_calculate.*
+import kotlinx.android.synthetic.main.activity_rd.*
+
 
 class EmiCalculateActivity : AppCompatActivity() {
 
@@ -58,6 +60,61 @@ class EmiCalculateActivity : AppCompatActivity() {
         TotalWithInterest=findViewById<View>(R.id.TotalWithInterest) as TextView
         payableInterest=findViewById<View>(R.id.PayableInterest) as TextView
         toggle1=findViewById<View>(R.id.toggle) as ToggleButton
+
+
+        //for display comma
+
+        Monthlydeposite!!.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
+                // TODO Auto-generated method stub
+            }
+
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
+                // TODO Auto-generated method stub
+            }
+
+            override fun afterTextChanged(s: Editable) {
+                // TODO Auto-generated method stub
+                if (s.toString().trim { it <= ' ' }.length > 0) {
+                    val rentValue = s.toString()
+                        .replace(",".toRegex(), "").toInt()
+                    var rentVal = StringBuffer()
+                    if (rentValue > 10000000) {
+                        s.clear()
+                        s.append("10,000,000")
+                    } else {
+                        if (s.length == 4) {
+                            val x = s.toString().toCharArray()
+                            val y = CharArray(x.size + 1)
+                            for (z in y.indices) {
+                                if (z == 1) {
+                                    y[1] = ','
+                                } else {
+                                    if (z == 0) y[z] = x[z] else {
+                                        y[z] = x[z - 1]
+                                    }
+                                }
+                            }
+                            for (z in y.indices) {
+                                rentVal = rentVal.append(y[z])
+                            }
+                            s.clear()
+                            s.append(rentVal)
+                        }
+                    }
+                }
+            }
+        })
+
+        //for display comma end
+
+
 
 
         Calculator!!.setOnClickListener{
@@ -230,6 +287,9 @@ class EmiCalculateActivity : AppCompatActivity() {
         TotalWithInterest!!.text=totalPayment1.toString().toFloat().toString()
         return emiCalculationPerMonth
     }
+
+
+
 
 }
 

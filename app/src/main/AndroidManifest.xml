@@ -25,7 +25,9 @@
         <activity
             android:name=".rdcalculator.RdActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".fdcalculator.InterestPayoutActivity" />
+        <activity android:name=".fdcalculator.InterestPayoutActivity"
+            android:parentActivityName=".MainActivity"
+            />
         <activity
             android:name=".fdcalculator.FdActivity"
             android:parentActivityName=".MainActivity" />

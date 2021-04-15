@@ -79,7 +79,7 @@
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Annual Interest Rate"
+        android:text="Interest Rate"
         android:textColor="#2F3293"
         android:textAlignment="center"
         android:layout_marginRight="50dp"
@@ -160,6 +160,7 @@
             android:layout_height="40dp"
             android:background="@drawable/corner_redius"
             android:inputType="numberDecimal" />
+
 
 
     </com.google.android.material.textfield.TextInputLayout>

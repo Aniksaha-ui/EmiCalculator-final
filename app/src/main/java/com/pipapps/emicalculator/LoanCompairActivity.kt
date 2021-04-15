@@ -1,9 +1,11 @@
 package com.pipapps.emicalculator
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -53,7 +55,7 @@ class LoanCompairActivity : AppCompatActivity() {
         Interest2=findViewById<View>(R.id.interestAmount2) as EditText
         Year2=findViewById<View>(R.id.year6) as EditText
         Calculator=findViewById<View>(R.id.cal) as Button
-        reset=findViewById<View>(R.id.reset) as Button
+        reset=findViewById<View>(R.id.reset1) as Button
         MonthlyPayment=findViewById<View>(R.id.monthlypayment1) as TextView
         PayableInterest=findViewById<View>(R.id.totalinterest1) as TextView
         MonthlyPayment2=findViewById<View>(R.id.monthlypayment2) as TextView
@@ -61,6 +63,12 @@ class LoanCompairActivity : AppCompatActivity() {
 
 
         Calculator!!.setOnClickListener{
+
+
+            if(currentFocus == null) return@setOnClickListener
+
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
 
             if(Principleamount1!!.length()==0){
                 Principleamount1!!.setError("Enter Principle Amount")
@@ -92,6 +100,24 @@ class LoanCompairActivity : AppCompatActivity() {
 
                 emi(P,I,N,P1,I1,N1)
             }
+
+        }
+
+
+        reset!!.setOnClickListener {
+
+            Principleamount1!!.setText("")
+            Year1!!.setText("")
+            Interest1!!.setText("")
+            Principleamount1!!.setText("")
+            Principleamount1!!.setText("")
+            Year2!!.setText("'")
+            Interest1!!.setText("")
+            MonthlyPayment!!.setText("0.0")
+            PayableInterest!!.setText("0.0")
+            MonthlyPayment2!!.setText("0.0")
+            PayableInterest2!!.setText("0.0")
+            Totalpayment2!!.setText("0.0")
 
         }
 

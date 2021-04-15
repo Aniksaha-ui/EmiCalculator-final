@@ -44,7 +44,7 @@ class InterestStatisticsActivity : AppCompatActivity() {
         var principle=P.toDouble()
 
         cal[Calendar.MONTH] = 11
-        var year = 2021
+        var year = cal.get(Calendar.YEAR)
         var interestshow=0.0
         var previousprinciple=0
         var countmonth=1
@@ -54,8 +54,6 @@ class InterestStatisticsActivity : AppCompatActivity() {
         var month2=0
 
         while(month>=1.0){
-
-
 
             var monthName=  cal.add(Calendar.MONTH, 1)
             var date = 1

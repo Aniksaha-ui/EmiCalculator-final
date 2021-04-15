@@ -30,46 +30,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:background="@drawable/stat_bg"
+        android:background="@drawable/asset_9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.050"
         tools:ignore="MissingConstraints">
 
 
         <LinearLayout
             android:id="@+id/linearLayout10"
-            android:layout_width="334dp"
-            android:layout_height="61dp"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="31dp"
-            android:layout_marginLeft="31dp"
-            android:layout_marginEnd="34dp"
-            android:layout_marginRight="34dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
             android:orientation="horizontal"
             android:weightSum="4">
 
 
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
+                android:padding="10sp"
                 android:text="Month"
                 android:textColor="@android:color/white"
                 android:textSize="10sp" />
 
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
+
                 android:text="Interest Amount"
                 android:textColor="@android:color/white"
                 android:textSize="10sp" />
@@ -85,38 +88,34 @@
                 android:textSize="10sp" />
 
 
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="RD Balance"
+                android:text="Rd Balanced"
                 android:textColor="@android:color/white"
                 android:textSize="10sp" />
 
-        </LinearLayout>
 
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView1"
-            android:layout_width="360dp"
-            android:layout_height="570dp"
+            android:layout_width="match_parent"
+            android:layout_height="705dp"
             android:layout_below="@+id/linearLayout10"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginBottom="35dp" />
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="24dp" />
 
 
     </RelativeLayout>
-
-
-
 
 
 

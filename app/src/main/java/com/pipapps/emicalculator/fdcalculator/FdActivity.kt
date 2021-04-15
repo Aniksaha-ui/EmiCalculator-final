@@ -69,6 +69,7 @@ class FdActivity : AppCompatActivity() {
 
 
         calculate!!.setOnClickListener {
+            if(currentFocus == null) return@setOnClickListener
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
 
@@ -128,11 +129,10 @@ class FdActivity : AppCompatActivity() {
 
 
                 if(toggle2!!.isChecked()){
-                    T=T/12
+                    T=T
                 }
                 else{
-                    T=T
-
+                    T=T*12
                 }
 
 
@@ -146,13 +146,6 @@ class FdActivity : AppCompatActivity() {
             }
 
         }
-
-
-
-
-
-
-
 
 
     }

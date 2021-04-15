@@ -82,7 +82,7 @@ class RdStatisticsActivity : AppCompatActivity() {
                 interestshow= (interestshow+monthlyinterestAmount).toFloat().toDouble()
 
                 countmonth++
-                 a=0
+                a=0
                 count.add(RdStatisticsData(i.toString(),monthyinterestAmount2.toString(),a.toString(),principle.toString()))
                 month--
                 i++
@@ -91,7 +91,7 @@ class RdStatisticsActivity : AppCompatActivity() {
             else if(countmonth%3==2){
 
 
-                 a= (interestshow+monthlyinterestAmount).toInt()
+                a= (interestshow+monthlyinterestAmount).toInt()
                 countmonth=0
                 interestshow=0.0
 
@@ -103,17 +103,13 @@ class RdStatisticsActivity : AppCompatActivity() {
 
             }
             if(month2==0){
-
-                a= (interestshow+monthlyinterestAmount).toInt()+a
+                monthlyInterst=((monthlyInterst*principle)/100)
+                a = (interestshow.toInt()+monthlyInterst).toInt()
                 principle=principle+a
-                monthlyInterst=((monthlyInterst*previousprinciple)/100)
+
                 count.add(RdStatisticsData(i.toString(),monthlyInterst.toString(),a.toString(),principle.toString()))
             }
         }
-
-
-
-
 
 
 

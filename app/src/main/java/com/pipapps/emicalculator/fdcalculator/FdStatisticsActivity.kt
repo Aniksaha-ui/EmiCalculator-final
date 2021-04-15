@@ -41,12 +41,12 @@ class FdStatisticsActivity : AppCompatActivity() {
         var R= bundle!!.getString("R")!!.toFloat()
         var T= bundle!!.getString("T")!!.toFloat()
 
-        var month=T*12
+        var month=T
         var cal = Calendar.getInstance()
         var principle=P.toDouble()
 
-        cal[Calendar.MONTH] = 11
-        var year = 2021
+        cal[Calendar.MONTH] =cal.get(Calendar.MONTH)-1
+        var year = cal.get(Calendar.YEAR)
         var interestshow=0.0
         var previousprinciple=0
         var countmonth=1
@@ -55,13 +55,11 @@ class FdStatisticsActivity : AppCompatActivity() {
         var a=0
         var month2=0
 
-
         while(month>=1.0){
 
 
 
             var monthName=  cal.add(Calendar.MONTH, 1)
-            var date = 1
             var maxDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH).toInt()
             var dailyInterest=(R/365)
             var monthlyInterst=dailyInterest* maxDay
@@ -95,10 +93,6 @@ class FdStatisticsActivity : AppCompatActivity() {
                 month2=month.toInt()
 
             }
-
-
-
-
 
         }
 

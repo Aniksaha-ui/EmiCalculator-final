@@ -120,7 +120,7 @@
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Loan Tenure"
+        android:text="Term"
         android:textAlignment="center"
         android:textColor="#2F3293"
         android:textSize="20sp"

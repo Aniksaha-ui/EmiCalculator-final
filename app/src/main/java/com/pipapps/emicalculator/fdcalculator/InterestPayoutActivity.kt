@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.ToggleButton
 import androidx.appcompat.app.ActionBar
 import androidx.core.app.NavUtils
 import com.pipapps.emicalculator.R
@@ -26,6 +27,7 @@ private var deposite: TextView?=null
 private var totalInterest: TextView?=null
 private var maturityAmount: TextView?=null
 private var absoluteAmount: TextView?=null
+private var toggle1: ToggleButton?=null
 
 class InterestPayoutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +52,8 @@ class InterestPayoutActivity : AppCompatActivity() {
 
 
         calculate!!.setOnClickListener {
+            if(currentFocus == null) return@setOnClickListener
+
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
 
@@ -67,6 +71,7 @@ class InterestPayoutActivity : AppCompatActivity() {
                 var P= DepositeAmount!!.text.toString().toDouble()
                 var R= Interest!!.text.toString().toDouble()
                 var T= year!!.text.toString().toDouble()
+
                 InterestPayoutCalculation(P,R,T)
             }
 
@@ -110,8 +115,6 @@ class InterestPayoutActivity : AppCompatActivity() {
             }
 
         }
-
-
 
     }
 

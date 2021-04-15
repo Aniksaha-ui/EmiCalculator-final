@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.ToggleButton
 import androidx.appcompat.app.ActionBar
 import androidx.core.app.NavUtils
 import com.pipapps.emicalculator.R
@@ -24,6 +25,7 @@ private var deposite: TextView?=null
 private var totalInterest: TextView?=null
 private var maturityAmount: TextView?=null
 private var absoluteAmount: TextView?=null
+private var toggle1: ToggleButton?=null
 
 class RdActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +51,9 @@ class RdActivity : AppCompatActivity() {
 
 
 
+
         calculate!!.setOnClickListener {
+            if(currentFocus == null) return@setOnClickListener
 
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
@@ -70,6 +74,7 @@ class RdActivity : AppCompatActivity() {
                 var P= DepositeAmount!!.text.toString().toDouble()
                 var R= Interest!!.text.toString().toDouble()
                 var T= year!!.text.toString().toDouble()
+
                 RdCalculation(P,R,T)
             }
 
@@ -140,13 +145,20 @@ class RdActivity : AppCompatActivity() {
         var default=0
         var Month=(t*12)
         var totaldeposite=p*Month
+
         var interest=((p)*(Month*(Month+1))*r)/(2*12*100)
         var totalamount=totaldeposite+interest
+        var absolutereturn=(interest/totaldeposite)*100
+        var absolutereturn1:String="%.2f".format(absolutereturn)
+
+//        var upperpart=(1+((Month+1)*r)/2400)
+//        var lowerpart=p*Month
+//        var totalamount=upperpart*lowerpart
 
         deposite!!.text=totaldeposite.toString()
         totalInterest!!.text=interest.toString()
         maturityAmount!!.text= totalamount.toString()
-        absoluteAmount!!.text=default.toString()
+        absoluteAmount!!.text=absolutereturn1.toString()
 
     }
 }
