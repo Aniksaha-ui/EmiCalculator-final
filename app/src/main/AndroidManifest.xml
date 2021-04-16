@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EMICalculator">
-        <activity android:name=".RateOfInterestActivity"></activity>
+        <activity android:name=".rateofinterest.RateStatisticsActivity"></activity>
+        <activity android:name=".rateofinterest.RateOfInterestActivity" />
         <activity
             android:name=".LoanCompairActivity"
             android:parentActivityName=".MainActivity" />
@@ -25,9 +26,9 @@
         <activity
             android:name=".rdcalculator.RdActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".fdcalculator.InterestPayoutActivity"
-            android:parentActivityName=".MainActivity"
-            />
+        <activity
+            android:name=".fdcalculator.InterestPayoutActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".fdcalculator.FdActivity"
             android:parentActivityName=".MainActivity" />

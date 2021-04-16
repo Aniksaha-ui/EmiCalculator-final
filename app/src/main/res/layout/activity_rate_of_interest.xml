@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/fab_margin"
     android:paddingRight="30dp"
     android:paddingBottom="@dimen/fab_margin"
-    tools:context=".RateOfInterestActivity">
+    tools:context=".rateofinterest.RateOfInterestActivity">
 
 
     <TextView

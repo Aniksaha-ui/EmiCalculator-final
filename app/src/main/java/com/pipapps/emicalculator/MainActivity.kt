@@ -7,6 +7,7 @@ import android.view.View
 import androidx.appcompat.app.ActionBar
 import com.pipapps.emicalculator.fdcalculator.FdActivity
 import com.pipapps.emicalculator.fdcalculator.InterestPayoutActivity
+import com.pipapps.emicalculator.rateofinterest.RateOfInterestActivity
 import com.pipapps.emicalculator.rdcalculator.RdActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
