@@ -1,6 +1,5 @@
 package com.pipapps.emicalculator
 
-import StatsticsAdapter
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MenuItem
@@ -42,8 +41,7 @@ class EmiStatiscticsActivity : AppCompatActivity() {
 
         val recyclerView = findViewById(R.id.recyclerView) as RecyclerView
 
-        recyclerView.layoutManager=LinearLayoutManager(this@EmiStatiscticsActivity, LinearLayout1.VERTICAL,
-            false)
+        recyclerView.layoutManager=LinearLayoutManager(this@EmiStatiscticsActivity)
         val count = ArrayList<StatisticsData>()
 
 
@@ -56,21 +54,23 @@ class EmiStatiscticsActivity : AppCompatActivity() {
 
 
         while (P>=1.0){
-
             var givenInterest:Float=(P*I)/(12*100)
-            var givenInterestFinal:String="%.2f".format(givenInterest)
+            var givenInterestFinal:String="%,.2f".format(givenInterest)
             var givenPrincipal:Float=(Emi-givenInterest)
-            var givenPrincipalFinal:String="%.2f".format(givenPrincipal)
+            var givenPrincipalFinal:String="%,.2f".format(givenPrincipal)
             P=P-givenPrincipal
-            var PrincipalFinal:String="%.2f".format(P)
+            var PrincipalFinal:String="%,.2f".format(P)
 
 
             count.add(StatisticsData(i.toString(),givenPrincipalFinal.toString(), givenInterestFinal.toString(),PrincipalFinal.toString()))
             i++
         }
         //creating our adapter
-        val adapter = StatsticsAdapter(count)
+        val adapter = StatisticsAdapter(count)
         //now adding the adapter to recyclerview
+
+        recyclerView.setHasFixedSize(true)
+
         recyclerView.adapter = adapter
 
     }
