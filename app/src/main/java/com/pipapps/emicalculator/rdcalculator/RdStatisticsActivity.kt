@@ -75,15 +75,15 @@ class RdStatisticsActivity : AppCompatActivity() {
             var dailyInterest=(R/365)
             var monthlyInterst=dailyInterest* maxDay
             var monthlyinterestAmount= ((monthlyInterst*previousprinciple)/100)
-            var monthyinterestAmount2:String="%.2f".format(monthlyinterestAmount)
+            var monthyinterestAmount2:String="%,.2f".format(monthlyinterestAmount)
 
             if(countmonth%3!=2){
 
                 interestshow= (interestshow+monthlyinterestAmount).toFloat().toDouble()
-
+                var principal_1="%,.2f".format(principle)
                 countmonth++
                 a=0
-                count.add(RdStatisticsData(i.toString(),monthyinterestAmount2.toString(),a.toString(),principle.toString()))
+                count.add(RdStatisticsData(i.toString(),monthyinterestAmount2.toString(),a.toString(),principal_1.toString()))
                 month--
                 i++
                 month2=month.toInt()
@@ -96,7 +96,8 @@ class RdStatisticsActivity : AppCompatActivity() {
                 interestshow=0.0
 
                 principle= (principle).toInt().toFloat()+a.toFloat()
-                count.add(RdStatisticsData(i.toString(),monthyinterestAmount2.toString(),a.toString(),principle.toString()))
+                var principal_1="%,.2f".format(principle)
+                count.add(RdStatisticsData(i.toString(),monthyinterestAmount2.toString(),a.toString(),principal_1.toString()))
                 month--
                 i++
                 month2=month.toInt()
@@ -106,8 +107,8 @@ class RdStatisticsActivity : AppCompatActivity() {
                 monthlyInterst=((monthlyInterst*principle)/100)
                 a = (interestshow.toInt()+monthlyInterst).toInt()
                 principle=principle+a
-
-                count.add(RdStatisticsData(i.toString(),monthlyInterst.toString(),a.toString(),principle.toString()))
+                var principal_1="%,.2f".format(principle)
+                count.add(RdStatisticsData(i.toString(),monthlyInterst.toString(),a.toString(),principal_1.toString()))
             }
         }
 
@@ -133,6 +134,5 @@ class RdStatisticsActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-
+    
 }

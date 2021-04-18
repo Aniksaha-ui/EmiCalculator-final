@@ -43,6 +43,9 @@ class InterestStatisticsActivity : AppCompatActivity() {
         var cal = Calendar.getInstance()
         var principle=P.toDouble()
 
+        var principal_1:String="%,.2f".format(principle)
+
+
         cal[Calendar.MONTH] = 11
         var year = cal.get(Calendar.YEAR)
         var interestshow=0.0
@@ -63,16 +66,16 @@ class InterestStatisticsActivity : AppCompatActivity() {
             var monthlyinterestAmount= ((monthlyInterst*principle)/100)
 
 
-            var monthlyinterestAmount1:String="%.2f".format(monthlyinterestAmount)
+            var monthlyinterestAmount1:String="%,.2f".format(monthlyinterestAmount)
 
 
 
                 interestshow= monthlyinterestAmount.toFloat().toDouble()
-            var interestshow1:String="%.2f".format(interestshow)
+            var interestshow1:String="%,.2f".format(interestshow)
 
                 countmonth++
                 a= (a+interestshow).toInt()
-                count.add(InterestStaticsData(i.toString(),monthlyinterestAmount1.toString(),interestshow1.toString(),principle.toString()))
+                count.add(InterestStaticsData(i.toString(),monthlyinterestAmount1.toString(),interestshow1.toString(),principal_1.toString()))
                 month--
                 i++
                 month2=month.toInt()

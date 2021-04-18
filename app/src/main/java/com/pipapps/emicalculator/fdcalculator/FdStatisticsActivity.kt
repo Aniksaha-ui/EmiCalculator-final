@@ -64,7 +64,7 @@ class FdStatisticsActivity : AppCompatActivity() {
             var dailyInterest=(R/365)
             var monthlyInterst=dailyInterest* maxDay
             var monthlyinterestAmount= ((monthlyInterst*principle)/100)
-            var monthlyinterestAmount2:String="%.2f".format(monthlyinterestAmount)
+            var monthlyinterestAmount2:String="%,.2f".format(monthlyinterestAmount)
 
             if(countmonth%4!=3){
 

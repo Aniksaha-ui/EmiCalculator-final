@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -49,7 +52,7 @@ class InterestPayoutActivity : AppCompatActivity() {
         totalInterest=findViewById<View>(R.id.totalInterest) as TextView
         maturityAmount=findViewById<View>(R.id.maturityAmount) as TextView
 
-
+        addTextFormater()
 
         calculate!!.setOnClickListener {
             if(currentFocus == null) return@setOnClickListener
@@ -68,7 +71,7 @@ class InterestPayoutActivity : AppCompatActivity() {
             }
 
             else{
-                var P= DepositeAmount!!.text.toString().toDouble()
+                var P= DepositeAmount!!.text.toString().replace(",", "").toDouble()
                 var R= Interest!!.text.toString().toDouble()
                 var T= year!!.text.toString().toDouble()
 
@@ -100,7 +103,7 @@ class InterestPayoutActivity : AppCompatActivity() {
             }
 
             else{
-                var P= DepositeAmount!!.text.toString().toDouble()
+                var P= DepositeAmount!!.text.toString().replace(",", "").toString().toDouble()
                 var R= Interest!!.text.toString().toDouble()
                 var T= year!!.text.toString().toDouble()
 
@@ -117,7 +120,51 @@ class InterestPayoutActivity : AppCompatActivity() {
         }
 
     }
+    private fun addTextFormater() {
 
+        DepositeAmount!!.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                charaters: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+
+            }
+
+            override fun onTextChanged(
+                charaters: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+
+            }
+
+            override fun afterTextChanged(editable: Editable?) {
+                DepositeAmount!!.removeTextChangedListener(this)
+
+                try {
+                    val s = DepositeAmount!!.text.toString().replace(",", "")
+                    val value = s.toDouble()
+                    DepositeAmount?.setText(doubleToStringNoDecimal(value))
+                    DepositeAmount?.setSelection(DepositeAmount!!.text.toString().length)
+
+
+                } catch (e: NumberFormatException) {
+                    e.printStackTrace()
+                }
+
+                DepositeAmount!!.addTextChangedListener(this)
+            }
+        })
+
+    }
+    fun doubleToStringNoDecimal(d: Double): String {
+        val formatter = String.format("%,.0f", d)
+        Log.d("number", formatter)
+        return formatter
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
