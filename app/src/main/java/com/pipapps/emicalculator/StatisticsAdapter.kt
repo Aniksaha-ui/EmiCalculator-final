@@ -34,6 +34,7 @@ class StatisticsAdapter(private val statistics: ArrayList<StatisticsData>) : Rec
     }
 
     //this method is binding the data on the list
+
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         if(getItemViewType(position) == ITEM_ROW)
         {

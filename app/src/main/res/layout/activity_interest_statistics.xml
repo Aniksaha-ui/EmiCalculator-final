@@ -6,31 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fdcalculator.FdStatisticsActivity">
 
-    <!--    <androidx.appcompat.widget.Toolbar-->
-    <!--        android:id="@+id/toolbar"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginBottom="370dp"-->
-    <!--        android:background="#8A59DD"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.0"-->
-    <!--        tools:ignore="MissingConstraints">-->
-
-    <!--        <TextView-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:gravity="center"-->
-    <!--            android:text="EMI + Financial Calculator"-->
-    <!--            android:textColor="@color/white"-->
-    <!--            android:textSize="18sp"-->
-
-    <!--            />-->
-
-    <!--    </androidx.appcompat.widget.Toolbar>-->
 
     <RelativeLayout
         android:layout_width="match_parent"

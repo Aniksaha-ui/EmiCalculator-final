@@ -17,6 +17,7 @@ import android.widget.ToggleButton
 import androidx.appcompat.app.ActionBar
 import androidx.core.app.NavUtils
 import com.pipapps.emicalculator.R
+import kotlin.math.roundToInt
 
 private var DepositeAmount: EditText?=null
 private var Interest: EditText?=null
@@ -76,7 +77,7 @@ class RdActivity : AppCompatActivity() {
 
                 var P= DepositeAmount!!.text.toString().replace(",", "").toDouble()
                 var R= Interest!!.text.toString().toDouble()
-                var T= year!!.text.toString().toDouble()
+                var T= year!!.text.toString().toInt()
 
                 RdCalculation(P,R,T)
             }
@@ -100,7 +101,7 @@ class RdActivity : AppCompatActivity() {
             else{
                 var P= DepositeAmount!!.text.toString().replace(",", "").toDouble()
                 var R= Interest!!.text.toString().toDouble()
-                var T= year!!.text.toString().toDouble()
+                var T= year!!.text.toString().toInt()
                 RdCalculation(P,R,T)
                 val bundle = Bundle()
                 bundle.putString("P", P.toDouble().toString())
@@ -184,7 +185,7 @@ class RdActivity : AppCompatActivity() {
         }
     }
 
-    public fun RdCalculation(p: Double, r: Double, t: Double) {
+    public fun RdCalculation(p: Double, r: Double, t: Int) {
 
         deposite=findViewById<View>(R.id.deposite) as TextView
         totalInterest=findViewById<View>(R.id.totalInterest) as TextView
@@ -193,7 +194,22 @@ class RdActivity : AppCompatActivity() {
 
         var default=0
         var Month=(t*12)
+        var totalMonth=(t*12)
         var totaldeposite=p*Month
+
+
+////
+//        var totalamount=0.0
+//        var rateOfInterest=r/100
+//        var upper=1+(rateOfInterest/4)
+//        var upperpart=p*upper
+//        while(Month!=1){
+//
+//            var lowerPart=(4*Month)/totalMonth.toDouble()
+//            totalamount=Math.pow(upperpart,lowerPart)
+//            Month--
+//        }
+
 
         var interest=((p)*(Month*(Month+1))*r)/(2*12*100)
         var totalamount=totaldeposite+interest
@@ -205,7 +221,7 @@ class RdActivity : AppCompatActivity() {
 //        var totalamount=upperpart*lowerpart
 
         deposite!!.text=totaldeposite.toString()
-        totalInterest!!.text=interest.toString()
+         totalInterest!!.text=interest.toString()
         maturityAmount!!.text= totalamount.toString()
         absoluteAmount!!.text=absolutereturn1.toString()
 

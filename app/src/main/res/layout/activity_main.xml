@@ -8,23 +8,23 @@
     tools:context=".MainActivity">
 
 
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:background="#9FB2FA"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:ignore="MissingConstraints">-->
+    <!--    <androidx.appcompat.widget.Toolbar-->
+    <!--        android:background="#9FB2FA"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        tools:ignore="MissingConstraints">-->
 
-<!--        <TextView-->
-<!--            android:textColor="#2F3293"-->
-<!--            android:gravity="center"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="EMI Calculator"-->
-<!--            android:textSize="18sp"-->
+    <!--        <TextView-->
+    <!--            android:textColor="#2F3293"-->
+    <!--            android:gravity="center"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="EMI Calculator"-->
+    <!--            android:textSize="18sp"-->
 
-<!--            />-->
+    <!--            />-->
 
-<!--    </androidx.appcompat.widget.Toolbar>-->
+    <!--    </androidx.appcompat.widget.Toolbar>-->
 
 
     <TextView
@@ -32,8 +32,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EMI calculator"
-        android:textSize="25dp"
         android:textColor="#2F3293"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -69,9 +69,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/emiCalculator"
+                android:layout_marginLeft="18dp"
                 android:text="@string/emi_calculator"
                 android:textColor="#2F3293"
-                android:layout_marginLeft="18dp"
                 android:textSize="14dp" />
 
         </RelativeLayout>
@@ -92,9 +92,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/compare_loan"
+                android:layout_marginLeft="18dp"
                 android:text="Compare loan"
                 android:textColor="#2F3293"
-                android:layout_marginLeft="18dp"
                 android:textSize="14sp" />
 
         </RelativeLayout>
@@ -115,8 +115,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rateofInterest"
-                android:text="Rate of Interest"
                 android:layout_marginLeft="18dp"
+                android:text="Rate of Interest"
                 android:textColor="#2F3293"
                 android:textSize="14dp" />
 
@@ -129,8 +129,8 @@
         android:id="@+id/Title3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#2F3293"
         android:text="Banking Calculator"
+        android:textColor="#2F3293"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -163,15 +163,15 @@
                 android:id="@+id/fixedDeposite"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:src="@drawable/fd_final"/>
+                android:src="@drawable/fd_final" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:textColor="#2F3293"
                 android:layout_below="@id/fixedDeposite"
+                android:layout_marginLeft="20dp"
                 android:text="Fixed deposite"
+                android:textColor="#2F3293"
                 android:textSize="14dp" />
 
         </RelativeLayout>
@@ -195,12 +195,11 @@
                 android:layout_below="@id/InterestPayout"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:textColor="#2F3293"
-
                 android:layout_marginLeft="20dp"
+
                 android:text="@string/interestPayout"
-                android:textSize="14dp"
-                />
+                android:textColor="#2F3293"
+                android:textSize="14dp" />
 
         </RelativeLayout>
 
@@ -224,13 +223,12 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="20dp"
-                android:textColor="#2F3293"
                 android:text="@string/RD"
+                android:textColor="#2F3293"
                 android:textSize="14dp" />
 
         </RelativeLayout>
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

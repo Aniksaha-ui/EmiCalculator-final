@@ -134,5 +134,5 @@ class RdStatisticsActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-    
+
 }
