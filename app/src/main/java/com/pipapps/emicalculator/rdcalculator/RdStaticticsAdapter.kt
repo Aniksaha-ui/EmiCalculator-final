@@ -6,16 +6,43 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pipapps.emicalculator.R
+import com.pipapps.emicalculator.fdcalculator.FdStatsticsAdapter
 
-class RdStatsticsAdapter(val statistics: ArrayList<RdStatisticsData>) : RecyclerView.Adapter<RdStatsticsAdapter.ViewHolder>() {
+class RdStatsticsAdapter(val statistics: ArrayList<RdStatisticsData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    private val HEADER_ROW = 0
+    private val ITEM_ROW = 1
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.rd_recycler_row, parent, false)
-        return ViewHolder(v)
+    override fun getItemViewType(position: Int): Int {
+
+        /*if(position == 0){
+            return HEADER_ROW
+        }*/
+
+        return ITEM_ROW
     }
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItems(statistics[position])
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        if(viewType == HEADER_ROW){
+
+            val v = LayoutInflater.from(parent.context).inflate(R.layout.rd_stat_recycler_title_row, parent, false)
+            return RdStatsticsAdapter.RdStatTitleViewHolder(v)
+        }
+
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.rd_recycler_row, parent, false)
+        return RdStatsticsAdapter.ViewHolder(v)
+
+    }
+
+
+    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
+        if(getItemViewType(position) == ITEM_ROW)
+        {
+            val holderStatItem = viewHolder as RdStatsticsAdapter.ViewHolder
+
+            holderStatItem.bindItems(statistics[position])
+        }
     }
 
     override fun getItemCount(): Int {
@@ -36,6 +63,11 @@ class RdStatsticsAdapter(val statistics: ArrayList<RdStatisticsData>) : Recycler
             textViewBalance.text=statistics.RdBalance
             textViewInterest.text=statistics.interestCaptilized
         }
+    }
+
+
+    class RdStatTitleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
     }
 
 

@@ -3,6 +3,9 @@ package com.pipapps.emicalculator.rateofinterest
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -12,6 +15,7 @@ import android.widget.ToggleButton
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.pipapps.emicalculator.R
+
 
 class RateOfInterestActivity : AppCompatActivity() {
 
@@ -47,7 +51,7 @@ class RateOfInterestActivity : AppCompatActivity() {
         payableInterest=findViewById<View>(R.id.PayableInterest) as TextView
         toggle1=findViewById<View>(R.id.toggle) as ToggleButton
 
-
+        addTextFormater()
 
         Calculator!!.setOnClickListener {
             if(currentFocus == null) return@setOnClickListener
@@ -67,8 +71,8 @@ class RateOfInterestActivity : AppCompatActivity() {
 
             else{
 
-                var P=Principleamount!!.text.toString().toDouble()
-                var N= Year!!.text.toString().toDouble()
+                var P=Principleamount!!.text.toString().replace(",","").toDouble()
+                var N= Year!!.text.toString().replace(",","").toDouble()
                 var E= emi!!.text.toString().toDouble()
 
                 if(toggle1!!.isChecked()){
@@ -105,7 +109,7 @@ class RateOfInterestActivity : AppCompatActivity() {
 
             else{
 
-                var P=Principleamount!!.text.toString().toDouble()
+                var P=Principleamount!!.text.toString().replace(",","").toDouble()
                 var N= Year!!.text.toString().toDouble()
                 var E= emi!!.text.toString().toDouble()
 
@@ -149,6 +153,54 @@ class RateOfInterestActivity : AppCompatActivity() {
 
 
     }
+
+    private fun addTextFormater() {
+
+        Principleamount!!.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                charaters: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+
+            }
+
+            override fun onTextChanged(
+                charaters: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+
+            }
+
+            override fun afterTextChanged(editable: Editable?) {
+                Principleamount!!.removeTextChangedListener(this)
+
+                try {
+                    val s = Principleamount!!.text.toString().replace(",", "")
+                    val value = s.toDouble()
+                    Principleamount?.setText(doubleToStringNoDecimal(value))
+                    Principleamount?.setSelection(Principleamount!!.text.toString().length)
+
+
+                } catch (e: NumberFormatException) {
+                    e.printStackTrace()
+                }
+
+                Principleamount!!.addTextChangedListener(this)
+            }
+        })
+
+    }
+    fun doubleToStringNoDecimal(d: Double): String {
+        val formatter = String.format("%,.0f", d)
+        Log.d("number", formatter)
+        return formatter
+    }
+
+
 
     fun RateofInterest(p: Double, n: Double, e: Double):Float {
 
