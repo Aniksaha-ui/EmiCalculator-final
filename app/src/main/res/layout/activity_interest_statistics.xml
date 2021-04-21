@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:background="@drawable/asset_9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,86 +19,24 @@
         tools:ignore="MissingConstraints">
 
 
-        <LinearLayout
-            android:id="@+id/linearLayout10"
-            android:layout_width="380dp"
-            android:layout_height="wrap_content"
-
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginEnd="13dp"
-            android:layout_marginRight="13dp"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="Month"
-                android:textColor="@android:color/white"
-                android:textSize="10sp" />
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-
-                android:text="Interest Amount"
-                android:textColor="@android:color/white"
-                android:textSize="10sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:padding="1sp"
-                android:text="Interest capitalized"
-                android:textColor="@android:color/white"
-                android:textSize="10sp" />
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="FD Balance"
-                android:textColor="@android:color/white"
-                android:textSize="10sp" />
-
-
-        </LinearLayout>
-
+        <include
+            android:id="@+id/header"
+            layout="@layout/interest_stat_recycler_title_row" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView5"
-            android:layout_width="352dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout10"
+            android:layout_below="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginBottom="35dp" />
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="24dp" />
 
 
     </RelativeLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

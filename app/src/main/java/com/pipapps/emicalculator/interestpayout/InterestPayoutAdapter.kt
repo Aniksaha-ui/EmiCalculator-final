@@ -6,17 +6,46 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pipapps.emicalculator.R
+import com.pipapps.emicalculator.StatisticsAdapter
+import com.pipapps.emicalculator.fdcalculator.FdStatsticsAdapter
 
 
-class InterestStatisticsAdapter(val statistics: ArrayList<InterestStaticsData>) : RecyclerView.Adapter<InterestStatisticsAdapter.ViewHolder>() {
+class InterestStatisticsAdapter(val statistics: ArrayList<InterestStaticsData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    private val HEADER_ROW = 0
+    private val ITEM_ROW = 1
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.interest_recycler_row, parent, false)
-        return ViewHolder(v)
+    override fun getItemViewType(position: Int): Int {
+
+        /*if(position == 0){
+            return HEADER_ROW
+        }*/
+
+        return ITEM_ROW
     }
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItems(statistics[position])
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
+        if(viewType == HEADER_ROW){
+
+            val v = LayoutInflater.from(parent.context).inflate(R.layout.interest_stat_recycler_title_row, parent, false)
+            return InterestStatisticsAdapter.InterestStatTitleViewHolder(v)
+        }
+
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.interest_recycler_row, parent, false)
+        return InterestStatisticsAdapter.ViewHolder(v)
+
+    }
+
+
+    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
+        if(getItemViewType(position) == ITEM_ROW)
+        {
+            val holderStatItem = viewHolder as InterestStatisticsAdapter.ViewHolder
+
+            holderStatItem.bindItems(statistics[position])
+        }
     }
 
     override fun getItemCount(): Int {
@@ -38,6 +67,11 @@ class InterestStatisticsAdapter(val statistics: ArrayList<InterestStaticsData>) 
             textViewInterest.text=statistics.interestCaptilizedCount1
 
         }
+    }
+
+
+    class InterestStatTitleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
     }
 
 

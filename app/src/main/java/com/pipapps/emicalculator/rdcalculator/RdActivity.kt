@@ -198,32 +198,25 @@ class RdActivity : AppCompatActivity() {
         var totaldeposite=p*Month
 
 
-////
-//        var totalamount=0.0
-//        var rateOfInterest=r/100
-//        var upper=1+(rateOfInterest/4)
-//        var upperpart=p*upper
-//        while(Month!=1){
-//
-//            var lowerPart=(4*Month)/totalMonth.toDouble()
-//            totalamount=Math.pow(upperpart,lowerPart)
-//            Month--
-//        }
+  var powerpart1 = Math.pow((1+r/400),(Month.toDouble()/3))
+  var powerpart2 = Math.pow((1+r/400),-0.333333)
+  var upperPart =  powerpart1-1
+  var lowerPart = 1-powerpart2
+  var result = upperPart/lowerPart
+  var totalamount = p*result
+  var totalamount1:String="%.2f".format(totalamount)
+
+  var interest= totalamount-totaldeposite
+  var interest1:String="%.2f".format(interest)
+
+  var absolutereturn=(interest/totaldeposite)*100
+  var absolutereturn1:String="%.2f".format(absolutereturn)
 
 
-        var interest=((p)*(Month*(Month+1))*r)/(2*12*100)
-        var totalamount=totaldeposite+interest
-        var absolutereturn=(interest/totaldeposite)*100
-        var absolutereturn1:String="%.2f".format(absolutereturn)
-
-//        var upperpart=(1+((Month+1)*r)/2400)
-//        var lowerpart=p*Month
-//        var totalamount=upperpart*lowerpart
-
-        deposite!!.text=totaldeposite.toString()
-         totalInterest!!.text=interest.toString()
-        maturityAmount!!.text= totalamount.toString()
-        absoluteAmount!!.text=absolutereturn1.toString()
+  deposite!!.text=totaldeposite.toString()
+  totalInterest!!.text=interest1.toString()
+  maturityAmount!!.text= totalamount1.toString()
+  absoluteAmount!!.text=absolutereturn1.toString()
 
     }
 }
