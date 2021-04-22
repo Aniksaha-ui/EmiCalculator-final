@@ -10,6 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 class LoanCompairActivity : AppCompatActivity() {
 
@@ -47,6 +50,17 @@ class LoanCompairActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setTitle("EMI Calculator")
+
+
+
+        MobileAds.initialize(this) {
+
+        }
+
+        val mAdView: AdView = findViewById(R.id.adLoanCompair)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
 
         Principleamount1 = findViewById<View>(R.id.principleamount1) as EditText
         Interest1=findViewById<View>(R.id.interestAmount1) as EditText
@@ -110,13 +124,15 @@ class LoanCompairActivity : AppCompatActivity() {
             Year1!!.setText("")
             Interest1!!.setText("")
             Principleamount1!!.setText("")
-            Principleamount1!!.setText("")
-            Year2!!.setText("'")
+            Principleamount2!!.setText("")
+            Year2!!.setText("")
             Interest1!!.setText("")
+            Interest2!!.setText("")
             MonthlyPayment!!.setText("0.0")
             PayableInterest!!.setText("0.0")
             MonthlyPayment2!!.setText("0.0")
             PayableInterest2!!.setText("0.0")
+            Totalpayment1!!.setText("0.0")
             Totalpayment2!!.setText("0.0")
 
         }

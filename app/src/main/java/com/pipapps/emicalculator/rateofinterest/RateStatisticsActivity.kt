@@ -7,6 +7,9 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.pipapps.emicalculator.R
 import com.pipapps.emicalculator.StatisticsData
 
@@ -19,6 +22,15 @@ class RateStatisticsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rate_statistics)
+
+
+        MobileAds.initialize(this) {
+
+        }
+
+        val mAdView: AdView = findViewById(R.id.adRateofInterest)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
 
         supportActionBar!!.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);

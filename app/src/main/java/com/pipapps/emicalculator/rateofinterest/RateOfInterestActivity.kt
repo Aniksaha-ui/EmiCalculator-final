@@ -14,6 +14,9 @@ import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.pipapps.emicalculator.R
 
 
@@ -38,6 +41,16 @@ class RateOfInterestActivity : AppCompatActivity() {
         supportActionBar!!.setCustomView(R.layout.action_bar_layout2);
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = "EMI Calculator"
+
+
+        MobileAds.initialize(this) {
+
+        }
+
+
+        val mAdView: AdView = findViewById(R.id.adRateOfInterest)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         Principleamount = findViewById<View>(R.id.principleamount) as EditText
         emi=findViewById<View>(R.id.emi) as EditText

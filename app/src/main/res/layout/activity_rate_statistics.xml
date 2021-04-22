@@ -1,43 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".rateofinterest.RateOfInterestActivity">
+    tools:context="">
 
-    <!--    <androidx.appcompat.widget.Toolbar-->
-    <!--        android:id="@+id/toolbar"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginBottom="370dp"-->
-    <!--        android:background="#8A59DD"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.0"-->
-    <!--        tools:ignore="MissingConstraints">-->
-
-    <!--        <TextView-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:gravity="center"-->
-    <!--            android:text="EMI + Financial Calculator"-->
-    <!--            android:textColor="@color/white"-->
-    <!--            android:textSize="18sp"-->
-
-    <!--            />-->
-
-    <!--    </androidx.appcompat.widget.Toolbar>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:background="@drawable/asset_9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,77 +19,18 @@
         tools:ignore="MissingConstraints">
 
 
-        <LinearLayout
-            android:id="@+id/linearLayout10"
-            android:layout_width="380dp"
-            android:layout_height="wrap_content"
-
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginEnd="13dp"
-            android:layout_marginRight="13dp"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="Month"
-                android:textColor="@android:color/white"
-                android:textSize="10sp" />
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-
-                android:text="Principle"
-                android:textColor="@android:color/white"
-                android:textSize="10sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:padding="1sp"
-                android:text="Interest"
-                android:textColor="@android:color/white"
-                android:textSize="10sp" />
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="Balance"
-                android:textColor="@android:color/white"
-                android:textSize="10sp" />
-
-
-        </LinearLayout>
+        <include
+            android:id="@+id/header"
+            layout="@layout/rateofinterest_stat_recycler_title_row" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView10"
+            android:layout_below="@+id/header"
             android:layout_width="match_parent"
-            android:layout_height="705dp"
-            android:layout_below="@+id/linearLayout10"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginBottom="24dp" />
@@ -125,6 +39,17 @@
     </RelativeLayout>
 
 
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adRateofInterest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/emi_calculator"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintLeft_toRightOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

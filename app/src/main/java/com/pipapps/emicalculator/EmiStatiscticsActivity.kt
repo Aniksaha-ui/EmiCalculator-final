@@ -7,6 +7,9 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlin.collections.ArrayList
 import android.widget.LinearLayout as LinearLayout1
 import androidx.recyclerview.widget.LinearLayoutManager as LinearLayoutManager
@@ -30,6 +33,16 @@ class EmiStatiscticsActivity : AppCompatActivity() {
         supportActionBar!!.setCustomView(R.layout.action_bar_layout2);
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setTitle("EMI Calculator")
+
+
+        MobileAds.initialize(this) {
+
+        }
+
+        val mAdView: AdView = findViewById(R.id.adEmiStat)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
 
         val bundle = intent.extras
         if (bundle!= null){

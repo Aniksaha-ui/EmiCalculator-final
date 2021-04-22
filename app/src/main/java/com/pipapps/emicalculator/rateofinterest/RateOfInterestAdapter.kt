@@ -7,22 +7,46 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pipapps.emicalculator.R
 import com.pipapps.emicalculator.StatisticsData
+import com.pipapps.emicalculator.fdcalculator.FdStatsticsAdapter
 
 
+class RateOfInterestAdapter(val statistics: ArrayList<RateOfInterestData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    private val HEADER_ROW = 0
+    private val ITEM_ROW = 1
 
+    override fun getItemViewType(position: Int): Int {
 
-class RateOfInterestAdapter(val statistics: ArrayList<RateOfInterestData>) : RecyclerView.Adapter<RateOfInterestAdapter.ViewHolder>() {
+        /*if(position == 0){
+            return HEADER_ROW
+        }*/
 
-    //this method is returning the view for each item in the list
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RateOfInterestAdapter.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.rateofinterest_recycler_row, parent, false)
-        return ViewHolder(v)
+        return ITEM_ROW
     }
 
+
+    //this method is returning the view for each item in the list
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        if(viewType == HEADER_ROW){
+
+            val v = LayoutInflater.from(parent.context).inflate(R.layout.rateofinterest_stat_recycler_title_row, parent, false)
+            return RateOfInterestAdapter.RateOfInterestStatTitleViewHolder(v)
+        }
+
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.rateofinterest_recycler_row, parent, false)
+        return RateOfInterestAdapter.ViewHolder(v)
+
+    }
+
+
     //this method is binding the data on the list
-    override fun onBindViewHolder(holder: RateOfInterestAdapter.ViewHolder, position: Int) {
-        holder.bindItems(statistics[position])
+    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
+        if(getItemViewType(position) == ITEM_ROW)
+        {
+            val holderStatItem = viewHolder as RateOfInterestAdapter.ViewHolder
+
+            holderStatItem.bindItems(statistics[position])
+        }
     }
 
     //this method is giving the size of the list
@@ -44,6 +68,10 @@ class RateOfInterestAdapter(val statistics: ArrayList<RateOfInterestData>) : Rec
             textViewBalance.text=statistics.balanceforinterest
             textViewInterest.text=statistics.interestforinterest
         }
+    }
+
+    class RateOfInterestStatTitleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
     }
 
 }

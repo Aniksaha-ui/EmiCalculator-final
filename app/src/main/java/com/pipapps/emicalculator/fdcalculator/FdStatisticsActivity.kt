@@ -8,6 +8,9 @@ import androidx.appcompat.app.ActionBar
 import androidx.core.app.NavUtils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.pipapps.emicalculator.R
 import java.util.*
 import kotlin.collections.ArrayList
@@ -22,6 +25,16 @@ class FdStatisticsActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setTitle("EMI Calculator")
+
+
+        MobileAds.initialize(this) {
+
+        }
+
+
+        val mAdView: AdView = findViewById(R.id.adFdStat)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         val bundle = intent.extras
         if (bundle!= null){
