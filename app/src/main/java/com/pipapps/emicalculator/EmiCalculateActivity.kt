@@ -17,6 +17,9 @@ import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_rd.*
 import java.text.DecimalFormat
 import java.util.*
@@ -51,6 +54,14 @@ class EmiCalculateActivity : AppCompatActivity() {
         supportActionBar!!.title = "EMI Calculator"
 
 
+        MobileAds.initialize(this) {
+
+        }
+
+
+        val mAdView: AdView = findViewById(R.id.adViewHome)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         Principleamount = findViewById<View>(R.id.principleamount) as EditText
         Interest = findViewById<View>(R.id.fdInterest) as EditText

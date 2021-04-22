@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="home_banner_id">ca-app-pub-4651020726870197/8714231173</string>
+    <string name="calculation_banner_id">ca-app-pub-4651020726870197/4296474017</string>
+    <string name="stat_banner_id">ca-app-pub-4651020726870197/8044147335</string>
+    <string name="admob_id">ca-app-pub-4651020726870197~5992699068</string>
+
 </resources>

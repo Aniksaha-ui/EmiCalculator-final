@@ -8,25 +8,6 @@
     tools:context=".MainActivity">
 
 
-    <!--    <androidx.appcompat.widget.Toolbar-->
-    <!--        android:background="#9FB2FA"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        tools:ignore="MissingConstraints">-->
-
-    <!--        <TextView-->
-    <!--            android:textColor="#2F3293"-->
-    <!--            android:gravity="center"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="EMI Calculator"-->
-    <!--            android:textSize="18sp"-->
-
-    <!--            />-->
-
-    <!--    </androidx.appcompat.widget.Toolbar>-->
-
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -229,6 +210,23 @@
 
         </RelativeLayout>
 
+
     </LinearLayout>
+
+
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adViewHome"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintLeft_toRightOf="parent"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
